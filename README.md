@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+**Cursor / AI helpers:** see [`CURSOR_NOTES.md`](./CURSOR_NOTES.md) for migration-specific tips (hero CSS, winners grid, images, workflow).
+
 ## Getting Started
 
 First, run the development server:
