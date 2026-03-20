@@ -60,7 +60,7 @@ export default function Hero() {
       <div
         className="shrink-0"
         style={{
-          paddingTop: "clamp(6.5rem, 14vw, 10rem)",
+          paddingTop: "clamp(5.5rem, 11vw, 8.5rem)",
         }}
         aria-hidden
       />
