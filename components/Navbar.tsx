@@ -3,70 +3,10 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { LEADERS_EVENT_ISO, useCountdown } from "@/lib/useCountdown";
 
-const badgeClass =
-  "hidden items-center justify-center rounded-md border border-white/15 bg-[#98652b]/85 px-2.5 py-1.5 text-center text-[0.65rem] font-medium uppercase leading-tight tracking-wide text-white/95 backdrop-blur-sm md:flex";
-
 type CountdownCell = { value: number; label: string };
-
-/** Four equal columns — same padding, dividers only between cells */
-function CountdownGrid({
-  cells,
-  className = "",
-}: {
-  cells: CountdownCell[];
-  className?: string;
-}) {
-  return (
-    <div
-      className={`grid min-w-[11.75rem] grid-cols-4 sm:min-w-[13.25rem] ${className}`.trim()}
-      role="timer"
-      aria-live="polite"
-    >
-      {cells.map(({ value, label }, i) => (
-        <div
-          key={label}
-          className={
-            "flex min-w-0 flex-col items-center justify-center px-2 py-1 sm:px-2.5 sm:py-1.5 " +
-            (i > 0 ? "border-l border-white/[0.11]" : "")
-          }
-        >
-          <span
-            className="flex h-[1.375rem] w-full items-end justify-center tabular-nums text-[1.0625rem] font-medium leading-none tracking-tight text-white/93 sm:h-6 sm:text-[1.1875rem]"
-          >
-            {value}
-          </span>
-          <span className="mt-[0.3125rem] w-full text-center text-[0.5rem] font-medium uppercase leading-none tracking-[0.2em] text-[#fee2b2]/72">
-            {label}
-          </span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function CountdownPanel() {
-  const { days, hours, minutes, seconds, expired } =
-    useCountdown(LEADERS_EVENT_ISO);
-
-  const cells: CountdownCell[] = expired
-    ? [
-        { value: 0, label: "Days" },
-        { value: 0, label: "Hrs" },
-        { value: 0, label: "Min" },
-        { value: 0, label: "Sec" },
-      ]
-    : [
-        { value: days, label: "Days" },
-        { value: hours, label: "Hrs" },
-        { value: minutes, label: "Min" },
-        { value: seconds, label: "Sec" },
-      ];
-
-  return <CountdownGrid cells={cells} />;
-}
 
 const PLACEHOLDER_CELLS: CountdownCell[] = [
   { value: 0, label: "Days" },
@@ -75,11 +15,86 @@ const PLACEHOLDER_CELLS: CountdownCell[] = [
   { value: 0, label: "Sec" },
 ];
 
+/** Venue, date, time + countdown in one high-contrast card */
+function EventClockWidget({ cells, muted }: { cells: CountdownCell[]; muted?: boolean }) {
+  return (
+    <div
+      className={
+        "w-full max-w-[17.5rem] rounded-xl border-2 border-[#cc9933] bg-[#141414] px-3 py-2.5 shadow-[0_6px_28px_rgba(0,0,0,0.55)] sm:max-w-[19rem] sm:px-3.5 sm:py-3 " +
+        (muted ? "opacity-0" : "")
+      }
+      role="region"
+      aria-label="Event date and countdown"
+    >
+      {/* Date & place */}
+      <div className="border-b border-[#98652b]/70 pb-2 text-center">
+        <p className="text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-[#fee2b2] sm:text-[0.62rem]">
+          Pierre Hotel · New York
+        </p>
+        <p className="mt-1 text-sm font-semibold leading-tight text-white sm:text-base">
+          October 8, 2026
+        </p>
+        <p className="mt-0.5 text-xs font-medium text-[#cc9933] sm:text-sm">
+          7:00 PM EST
+        </p>
+      </div>
+
+      <p className="pt-2 text-center text-[0.52rem] font-semibold uppercase tracking-[0.2em] text-[#fee2b2]/85">
+        Countdown
+      </p>
+
+      {/* Clock-style segments with colons */}
+      <div
+        className="mt-1.5 flex w-full max-w-full items-end justify-center"
+        role="timer"
+        aria-live="polite"
+      >
+        {cells.map((cell, i) => (
+          <Fragment key={cell.label}>
+            {i > 0 ? (
+              <span
+                aria-hidden
+                className="shrink-0 px-0.5 pb-[1.125rem] text-lg font-extralight leading-none text-[#cc9933] sm:px-1 sm:pb-5 sm:text-2xl"
+              >
+                :
+              </span>
+            ) : null}
+            <div className="flex min-w-0 flex-1 basis-0 flex-col items-center px-0.5 sm:px-1">
+              <span className="tabular-nums text-xl font-bold leading-none text-white sm:text-2xl">
+                {cell.value}
+              </span>
+              <span className="mt-1 w-full text-center text-[0.45rem] font-semibold uppercase tracking-[0.14em] text-[#fee2b2] sm:text-[0.5rem] sm:tracking-[0.18em]">
+                {cell.label}
+              </span>
+            </div>
+          </Fragment>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function LiveEventClock() {
+  const { days, hours, minutes, seconds, expired } =
+    useCountdown(LEADERS_EVENT_ISO);
+
+  const cells: CountdownCell[] = expired
+    ? PLACEHOLDER_CELLS
+    : [
+        { value: days, label: "Days" },
+        { value: hours, label: "Hrs" },
+        { value: minutes, label: "Min" },
+        { value: seconds, label: "Sec" },
+      ];
+
+  return <EventClockWidget cells={cells} />;
+}
+
 export default function Navbar() {
-  const [showCountdown, setShowCountdown] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setShowCountdown(true);
+    setMounted(true);
   }, []);
 
   return (
@@ -104,25 +119,12 @@ export default function Navbar() {
           />
         </Link>
 
-        <div className="flex flex-shrink-0 flex-row items-start gap-2 md:gap-2.5">
-          <div className={badgeClass}>Pierre Hotel / new york</div>
-          <div className={badgeClass}>08 / oct</div>
-
-          <div
-            className="rounded-2xl border border-white/[0.14] px-1.5 py-1 shadow-[0_2px_16px_rgba(0,0,0,0.18)] sm:px-2 sm:py-1.5"
-            style={{
-              background:
-                "linear-gradient(160deg, rgba(255,255,255,0.11) 0%, rgba(255,255,255,0.035) 55%, rgba(0,0,0,0.08) 100%)",
-              WebkitBackdropFilter: "blur(14px)",
-              backdropFilter: "blur(14px)",
-            }}
-          >
-            {showCountdown ? (
-              <CountdownPanel />
-            ) : (
-              <CountdownGrid cells={PLACEHOLDER_CELLS} className="opacity-0" />
-            )}
-          </div>
+        <div className="min-w-0 flex-shrink">
+          {mounted ? (
+            <LiveEventClock />
+          ) : (
+            <EventClockWidget cells={PLACEHOLDER_CELLS} muted />
+          )}
         </div>
       </nav>
     </motion.header>
