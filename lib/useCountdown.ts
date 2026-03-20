@@ -64,3 +64,39 @@ export function useCountdown(targetDate: string): CountdownState {
 
   return state;
 }
+
+export type DaysUntilState = { days: number; expired: boolean };
+
+function computeDaysUntil(targetMs: number): DaysUntilState {
+  if (Number.isNaN(targetMs)) return { days: 0, expired: true };
+  const diff = targetMs - Date.now();
+  if (diff <= 0) return { days: 0, expired: true };
+  const days = Math.floor(diff / 86_400_000);
+  return { days, expired: false };
+}
+
+/**
+ * Full calendar days until the ISO instant. No hours/minutes/seconds —
+ * use when the exact event time is not public. Ticks every minute.
+ */
+export function useDaysUntilEvent(iso: string): DaysUntilState {
+  const targetMs = new Date(iso).getTime();
+
+  const [state, setState] = useState<DaysUntilState>(() =>
+    computeDaysUntil(targetMs)
+  );
+
+  useEffect(() => {
+    if (Number.isNaN(targetMs)) {
+      setState({ days: 0, expired: true });
+      return;
+    }
+
+    const tick = () => setState(computeDaysUntil(targetMs));
+    tick();
+    const id = setInterval(tick, 60_000);
+    return () => clearInterval(id);
+  }, [targetMs]);
+
+  return state;
+}

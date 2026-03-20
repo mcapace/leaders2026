@@ -3,30 +3,28 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment, useEffect, useState } from "react";
-import { LEADERS_EVENT_ISO, useCountdown } from "@/lib/useCountdown";
+import { useEffect, useState } from "react";
+import { LEADERS_EVENT_ISO, useDaysUntilEvent } from "@/lib/useCountdown";
 
-type CountdownCell = { value: number; label: string };
-
-const PLACEHOLDER_CELLS: CountdownCell[] = [
-  { value: 0, label: "Days" },
-  { value: 0, label: "Hrs" },
-  { value: 0, label: "Min" },
-  { value: 0, label: "Sec" },
-];
-
-/** Venue, date, time + countdown in one high-contrast card */
-function EventClockWidget({ cells, muted }: { cells: CountdownCell[]; muted?: boolean }) {
+/** Venue, date, and days-until-event in one high-contrast card (no time-of-day) */
+function EventClockWidget({
+  days,
+  expired,
+  muted,
+}: {
+  days: number;
+  expired: boolean;
+  muted?: boolean;
+}) {
   return (
     <div
       className={
-        "w-full max-w-[17.5rem] rounded-xl border-2 border-[#cc9933] bg-[#141414] px-3 py-2.5 shadow-[0_6px_28px_rgba(0,0,0,0.55)] sm:max-w-[19rem] sm:px-3.5 sm:py-3 " +
+        "w-full max-w-[14rem] rounded-xl border-2 border-[#cc9933] bg-[#141414] px-3 py-2.5 shadow-[0_6px_28px_rgba(0,0,0,0.55)] sm:max-w-[15rem] sm:px-3.5 sm:py-3 " +
         (muted ? "opacity-0" : "")
       }
       role="region"
-      aria-label="Event date and countdown"
+      aria-label="Event date and days until event"
     >
-      {/* Date & place */}
       <div className="border-b border-[#98652b]/70 pb-2 text-center">
         <p className="text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-[#fee2b2] sm:text-[0.62rem]">
           Pierre Hotel · New York
@@ -37,54 +35,37 @@ function EventClockWidget({ cells, muted }: { cells: CountdownCell[]; muted?: bo
       </div>
 
       <p className="pt-2 text-center text-[0.52rem] font-semibold uppercase tracking-[0.2em] text-[#fee2b2]/85">
-        Countdown
+        Days until event
       </p>
 
-      {/* Clock-style segments with colons */}
       <div
-        className="mt-1.5 flex w-full max-w-full items-end justify-center"
+        className="mt-2 flex flex-col items-center justify-center py-1"
         role="timer"
         aria-live="polite"
+        aria-atomic="true"
       >
-        {cells.map((cell, i) => (
-          <Fragment key={cell.label}>
-            {i > 0 ? (
-              <span
-                aria-hidden
-                className="shrink-0 px-0.5 pb-[1.125rem] text-lg font-extralight leading-none text-[#cc9933] sm:px-1 sm:pb-5 sm:text-2xl"
-              >
-                :
-              </span>
-            ) : null}
-            <div className="flex min-w-0 flex-1 basis-0 flex-col items-center px-0.5 sm:px-1">
-              <span className="tabular-nums text-xl font-bold leading-none text-white sm:text-2xl">
-                {cell.value}
-              </span>
-              <span className="mt-1 w-full text-center text-[0.45rem] font-semibold uppercase tracking-[0.14em] text-[#fee2b2] sm:text-[0.5rem] sm:tracking-[0.18em]">
-                {cell.label}
-              </span>
-            </div>
-          </Fragment>
-        ))}
+        {expired ? (
+          <p className="py-1 text-center text-lg font-semibold leading-tight text-[#cc9933] sm:text-xl">
+            Event day
+          </p>
+        ) : (
+          <>
+            <span className="tabular-nums text-3xl font-bold leading-none text-white sm:text-4xl">
+              {days}
+            </span>
+            <span className="mt-1.5 text-[0.5rem] font-semibold uppercase tracking-[0.22em] text-[#fee2b2]">
+              Days
+            </span>
+          </>
+        )}
       </div>
     </div>
   );
 }
 
 function LiveEventClock() {
-  const { days, hours, minutes, seconds, expired } =
-    useCountdown(LEADERS_EVENT_ISO);
-
-  const cells: CountdownCell[] = expired
-    ? PLACEHOLDER_CELLS
-    : [
-        { value: days, label: "Days" },
-        { value: hours, label: "Hrs" },
-        { value: minutes, label: "Min" },
-        { value: seconds, label: "Sec" },
-      ];
-
-  return <EventClockWidget cells={cells} />;
+  const { days, expired } = useDaysUntilEvent(LEADERS_EVENT_ISO);
+  return <EventClockWidget days={days} expired={expired} />;
 }
 
 export default function Navbar() {
@@ -120,7 +101,7 @@ export default function Navbar() {
           {mounted ? (
             <LiveEventClock />
           ) : (
-            <EventClockWidget cells={PLACEHOLDER_CELLS} muted />
+            <EventClockWidget days={0} expired={false} muted />
           )}
         </div>
       </nav>
