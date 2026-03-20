@@ -5,7 +5,7 @@ export default function Footer() {
       style={{ backgroundColor: "#141414" }}
     >
       <div className="mx-auto w-[90%] max-w-container px-6 py-6">
-        <p>©2025 Market Watch</p>
+        <p>©2026 Market Watch</p>
       </div>
     </footer>
   );

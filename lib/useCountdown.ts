@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-/** Market Watch Leaders Awards — Oct 9, 2025, 7:00 PM Eastern */
-export const LEADERS_EVENT_ISO = "2025-10-09T19:00:00-04:00";
+/** Market Watch Leaders Awards — Oct 8, 2026, 7:00 PM EST */
+export const LEADERS_EVENT_ISO = "2026-10-08T19:00:00-05:00";
 
 export type CountdownState = {
   days: number;

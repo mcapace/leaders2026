@@ -76,7 +76,7 @@ export default function Navbar() {
       <nav className="pointer-events-auto mx-auto flex w-[90%] max-w-[81.25rem] items-center justify-between gap-4 px-6 py-6">
         <Link href="#hero" className="shrink-0">
           <Image
-            src="/images/logo.avif"
+            src="/images/logo/logo.png"
             alt="Market Watch"
             width={300}
             height={80}
@@ -87,7 +87,7 @@ export default function Navbar() {
 
         <div className="flex flex-shrink-0 flex-row items-center gap-3">
           <div className={badgeClass}>Pierre Hotel / new york</div>
-          <div className={badgeClass}>09 / oct</div>
+          <div className={badgeClass}>08 / oct</div>
 
           <div
             className="rounded-sm border border-white/20 px-3 py-2 md:px-6 md:py-3"

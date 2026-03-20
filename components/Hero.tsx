@@ -59,7 +59,7 @@ export default function Hero() {
           {...fadeUp}
           transition={{ duration: 0.65, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
         >
-          the 2025 market watch leaders awards
+          the 2026 market watch leaders awards
         </motion.h1>
 
         <motion.p
@@ -67,7 +67,7 @@ export default function Hero() {
           {...fadeUp}
           transition={{ duration: 0.65, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          October 9th, 2025 at Pierre Hotel, NYC.
+          October 8th, 2026, 7:00 PM EST, at Pierre Hotel, NYC.
           <br />
           Hosted by Marvin R. Shanken, Chairman, M. Shanken Communications, Inc.
           Honoring the most progressive wine &amp; spirits merchants in North
