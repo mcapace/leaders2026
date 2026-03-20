@@ -3,7 +3,7 @@ import "./globals.css";
 
 const title = "The 2026 Market Watch Leaders Awards";
 const description =
-  "October 8th, 2026, 7:00 PM EST, at Pierre Hotel, NYC. Hosted by Marvin R. Shanken, Chairman, M. Shanken Communications, Inc. Honoring the most progressive wine & spirits merchants in North America.";
+  "October 8th, 2026 at Pierre Hotel, NYC. Hosted by Marvin R. Shanken, Chairman, M. Shanken Communications, Inc. Honoring the most progressive wine & spirits merchants in North America.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://leaders2025.marketwatchmag.com"),

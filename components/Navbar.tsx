@@ -34,9 +34,6 @@ function EventClockWidget({ cells, muted }: { cells: CountdownCell[]; muted?: bo
         <p className="mt-1 text-sm font-semibold leading-tight text-white sm:text-base">
           October 8, 2026
         </p>
-        <p className="mt-0.5 text-xs font-medium text-[#cc9933] sm:text-sm">
-          7:00 PM EST
-        </p>
       </div>
 
       <p className="pt-2 text-center text-[0.52rem] font-semibold uppercase tracking-[0.2em] text-[#fee2b2]/85">
