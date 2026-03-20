@@ -9,11 +9,49 @@ import { LEADERS_EVENT_ISO, useCountdown } from "@/lib/useCountdown";
 const badgeClass =
   "hidden items-center justify-center rounded-md border border-white/15 bg-[#98652b]/85 px-2.5 py-1.5 text-center text-[0.65rem] font-medium uppercase leading-tight tracking-wide text-white/95 backdrop-blur-sm md:flex";
 
+type CountdownCell = { value: number; label: string };
+
+/** Four equal columns — same padding, dividers only between cells */
+function CountdownGrid({
+  cells,
+  className = "",
+}: {
+  cells: CountdownCell[];
+  className?: string;
+}) {
+  return (
+    <div
+      className={`grid min-w-[11.75rem] grid-cols-4 sm:min-w-[13.25rem] ${className}`.trim()}
+      role="timer"
+      aria-live="polite"
+    >
+      {cells.map(({ value, label }, i) => (
+        <div
+          key={label}
+          className={
+            "flex min-w-0 flex-col items-center justify-center px-2 py-1 sm:px-2.5 sm:py-1.5 " +
+            (i > 0 ? "border-l border-white/[0.11]" : "")
+          }
+        >
+          <span
+            className="flex h-[1.375rem] w-full items-end justify-center tabular-nums text-[1.0625rem] font-medium leading-none tracking-tight text-white/93 sm:h-6 sm:text-[1.1875rem]"
+          >
+            {value}
+          </span>
+          <span className="mt-[0.3125rem] w-full text-center text-[0.5rem] font-medium uppercase leading-none tracking-[0.2em] text-[#fee2b2]/72">
+            {label}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function CountdownPanel() {
   const { days, hours, minutes, seconds, expired } =
     useCountdown(LEADERS_EVENT_ISO);
 
-  const cells = expired
+  const cells: CountdownCell[] = expired
     ? [
         { value: 0, label: "Days" },
         { value: 0, label: "Hrs" },
@@ -27,24 +65,15 @@ function CountdownPanel() {
         { value: seconds, label: "Sec" },
       ];
 
-  return (
-    <div className="flex items-stretch justify-center divide-x divide-white/10">
-      {cells.map(({ value, label }) => (
-        <div
-          key={label}
-          className="flex min-w-[2.35rem] flex-col items-center justify-center px-2.5 first:pl-1 last:pr-1 sm:min-w-[2.6rem] sm:px-3"
-        >
-          <span className="tabular-nums text-lg font-medium leading-none text-white/90 sm:text-xl">
-            {value}
-          </span>
-          <span className="mt-1 text-[0.5rem] font-medium uppercase leading-none tracking-[0.22em] text-[#fee2b2]/70">
-            {label}
-          </span>
-        </div>
-      ))}
-    </div>
-  );
+  return <CountdownGrid cells={cells} />;
 }
+
+const PLACEHOLDER_CELLS: CountdownCell[] = [
+  { value: 0, label: "Days" },
+  { value: 0, label: "Hrs" },
+  { value: 0, label: "Min" },
+  { value: 0, label: "Sec" },
+];
 
 export default function Navbar() {
   const [showCountdown, setShowCountdown] = useState(false);
@@ -80,35 +109,18 @@ export default function Navbar() {
           <div className={badgeClass}>08 / oct</div>
 
           <div
-            className="rounded-full border border-white/12 px-1 py-1.5 shadow-[0_2px_20px_rgba(0,0,0,0.2)] sm:px-2 sm:py-2"
+            className="rounded-2xl border border-white/[0.14] px-1.5 py-1 shadow-[0_2px_16px_rgba(0,0,0,0.18)] sm:px-2 sm:py-1.5"
             style={{
               background:
-                "linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.04) 100%)",
-              WebkitBackdropFilter: "blur(12px)",
-              backdropFilter: "blur(12px)",
+                "linear-gradient(160deg, rgba(255,255,255,0.11) 0%, rgba(255,255,255,0.035) 55%, rgba(0,0,0,0.08) 100%)",
+              WebkitBackdropFilter: "blur(14px)",
+              backdropFilter: "blur(14px)",
             }}
           >
             {showCountdown ? (
               <CountdownPanel />
             ) : (
-              <div
-                className="flex items-center justify-center divide-x divide-white/10 opacity-0"
-                aria-hidden
-              >
-                {(["Days", "Hrs", "Min", "Sec"] as const).map((label) => (
-                  <div
-                    key={label}
-                    className="flex min-w-[2.35rem] flex-col items-center px-2.5 first:pl-1 last:pr-1 sm:min-w-[2.6rem] sm:px-3"
-                  >
-                    <span className="tabular-nums text-lg font-medium text-white/90 sm:text-xl">
-                      0
-                    </span>
-                    <span className="mt-1 text-[0.5rem] font-medium uppercase tracking-[0.22em] text-[#fee2b2]/70">
-                      {label}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              <CountdownGrid cells={PLACEHOLDER_CELLS} className="opacity-0" />
             )}
           </div>
         </div>
