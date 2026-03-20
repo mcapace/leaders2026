@@ -73,14 +73,17 @@ export default function Navbar() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}
     >
-      <nav className="pointer-events-auto mx-auto flex w-[90%] max-w-[81.25rem] items-center justify-between gap-4 px-6 py-6">
-        <Link href="#hero" className="shrink-0">
+      <nav className="pointer-events-auto mx-auto flex w-[90%] max-w-[81.25rem] items-center justify-between gap-3 px-4 py-4 md:gap-4 md:px-6 md:py-6">
+        <Link
+          href="#hero"
+          className="shrink-0 drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)]"
+        >
           <Image
             src="/images/logo/logo.png"
             alt="Market Watch"
             width={300}
             height={80}
-            className="h-auto w-[192px] md:w-[300px]"
+            className="h-auto w-[168px] sm:w-[192px] md:w-[280px] lg:w-[300px]"
             priority
           />
         </Link>
@@ -90,11 +93,11 @@ export default function Navbar() {
           <div className={badgeClass}>08 / oct</div>
 
           <div
-            className="rounded-sm border border-white/20 px-3 py-2 md:px-6 md:py-3"
+            className="rounded-sm border border-white/25 px-2.5 py-2 shadow-[0_4px_24px_rgba(0,0,0,0.35)] md:px-5 md:py-2.5"
             style={{
-              backgroundColor: "#fbdfb31a",
-              WebkitBackdropFilter: "blur(5px)",
-              backdropFilter: "blur(5px)",
+              backgroundColor: "rgba(251, 223, 179, 0.14)",
+              WebkitBackdropFilter: "blur(8px)",
+              backdropFilter: "blur(8px)",
             }}
           >
             {showCountdown ? (
