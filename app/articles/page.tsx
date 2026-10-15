@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { articles, articleSections } from "@/lib/articles";
 import { ArticleHeader, Footer } from "@/components/ArticleLayout";
+import { ArrowRight } from "@/components/Icons";
 
 export const metadata: Metadata = {
   title: "The 2026 Issue",
@@ -96,8 +97,9 @@ export default function ArticlesIndex() {
                           >
                             {a.summary}
                           </p>
-                          <span className="mt-2 inline-block text-[0.68rem] font-semibold uppercase tracking-wider text-[#98652b]">
-                            read article ›
+                          <span className="mt-2 inline-flex items-center gap-1.5 text-[0.68rem] font-semibold uppercase tracking-wider text-[#98652b]">
+                            read article
+                            <ArrowRight size={13} className="transition group-hover:translate-x-0.5" />
                           </span>
                         </div>
                       </Link>

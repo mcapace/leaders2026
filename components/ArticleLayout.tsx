@@ -3,6 +3,7 @@ import { articles } from "@/lib/articles";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import { ChevronLeft, ChevronRight } from "@/components/Icons";
 
 export function ArticleHeader() {
   return (
@@ -157,8 +158,15 @@ function PrevNext({ current }: { current: string }) {
         (dir === "next" ? "text-right" : "text-left")
       }
     >
-      <span className="text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#98652b]">
-        {dir === "prev" ? "‹ Previous" : "Next ›"}
+      <span
+        className={
+          "inline-flex items-center gap-1 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#98652b] " +
+          (dir === "next" ? "justify-end" : "")
+        }
+      >
+        {dir === "prev" && <ChevronLeft size={14} />}
+        {dir === "prev" ? "Previous" : "Next"}
+        {dir === "next" && <ChevronRight size={14} />}
       </span>
       <span
         className="mt-1 text-[1.05rem] font-medium leading-tight text-[#141414] group-hover:underline"
