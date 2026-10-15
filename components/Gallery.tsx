@@ -8,7 +8,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 const arrowBtnClass =
-  "flex h-11 w-11 items-center justify-center rounded-full border border-[#98652b]/60 bg-[#fefcf7]/90 text-[#98652b] shadow-[0_4px_14px_rgba(20,20,20,0.12)] backdrop-blur transition hover:border-[#cc9933] hover:bg-[#fee2b2] hover:text-[#141414] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc9933]";
+  "flex h-11 w-11 items-center justify-center rounded-full border border-[#fee2b2]/40 bg-[#141414]/70 text-[#fee2b2] shadow-[0_4px_14px_rgba(0,0,0,0.35)] backdrop-blur transition hover:border-[#cc9933] hover:bg-[#fee2b2] hover:text-[#141414] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc9933]";
 
 const lightboxBtnClass =
   "flex h-11 w-11 items-center justify-center rounded-full border border-[#fee2b2]/40 bg-white/5 text-[#fee2b2] transition hover:border-[#cc9933] hover:bg-[#fee2b2] hover:text-[#141414] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc9933]";
@@ -123,11 +123,15 @@ export default function Gallery() {
   return (
     <section
       id="gallery"
-      className="border-y px-4 py-24"
+      className="relative overflow-hidden border-y px-4 py-24 text-white"
       style={{
-        backgroundColor: "#fefcf7",
-        borderColor: "#fee2b2",
+        backgroundColor: "#141414",
+        borderColor: "#98652b66",
         borderWidth: "0.0625rem",
+        backgroundImage: `linear-gradient(180deg, rgba(20,20,20,0.9) 0%, rgba(20,20,20,0.8) 50%, rgba(20,20,20,0.94) 100%), url('${eventGallery.backdrop}')`,
+        backgroundSize: "cover",
+        backgroundPosition: "50% 40%",
+        backgroundAttachment: "scroll",
       }}
     >
       <div className="mx-auto w-full max-w-[81.25rem]">
@@ -136,10 +140,9 @@ export default function Gallery() {
             {eventGallery.heading}
           </h2>
           <p
-            className="mt-4"
+            className="mt-4 text-white"
             style={{
               opacity: 0.8,
-              color: "#141414",
               fontSize: "1.0625rem",
               lineHeight: "1.5625rem",
             }}
@@ -176,7 +179,7 @@ export default function Gallery() {
               <div key={`${current}-${imgIndex}`} className="min-w-0">
                 <motion.button
                   type="button"
-                  className="relative aspect-[4/3] w-full cursor-pointer overflow-hidden rounded-md border-0 bg-transparent p-0 text-left"
+                  className="relative aspect-[4/3] w-full cursor-pointer overflow-hidden rounded-md border-0 bg-transparent p-0 text-left shadow-[0_10px_30px_rgba(0,0,0,0.45)] ring-1 ring-[#fee2b2]/20"
                   onClick={() => setLightboxIndex(imgIndex)}
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
@@ -190,8 +193,8 @@ export default function Gallery() {
                   />
                 </motion.button>
                 <p
-                  className="mt-2 text-[0.8rem] leading-snug text-[#141414]"
-                  style={{ opacity: 0.7 }}
+                  className="mt-2 text-[0.8rem] leading-snug text-[#fee2b2]"
+                  style={{ opacity: 0.85 }}
                 >
                   {galleryImages[imgIndex].alt}
                 </p>
@@ -202,7 +205,7 @@ export default function Gallery() {
 
         <p
           className="mt-6 text-center font-medium"
-          style={{ color: "#98652b" }}
+          style={{ color: "#cc9933" }}
         >
           {counterLabel}
         </p>
