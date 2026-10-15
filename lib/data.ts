@@ -198,7 +198,7 @@ export const eventGallery = {
   comingSoon: "Coming soon",
   blurb:
     "Photography from the 43rd annual Market Watch Leaders Awards dinner at The Pierre, New York, is on its way.",
-  backdrop: "/images/hero-2026.avif",
+  backdrop: "/images/event-2026.avif",
 };
 
 /* —— Archive —— */
