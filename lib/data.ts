@@ -202,17 +202,17 @@ export const galleryImages: GalleryImage[] = [
   { src: "/images/2026/event/jls-102.avif", alt: "Anuj Mittal of Zipps Liquors accepts his Market Watch Leaders award" },
   { src: "/images/2026/event/jls-106.avif", alt: "Adam Acquistapace of Acquistapace’s accepts the Best Marketing award" },
   { src: "/images/2026/event/jls-109.avif", alt: "Stew Leonard Jr., Kim Leonard and Blake Leonard of Stew Leonard’s accept the Community Service award" },
-  { src: "/images/2026/event/jls-110.avif", alt: "Britt West, Moises Guindi and Daniel Schneeweiss of Gallo accept the Leaders Choice award for Gran Malo" },
+  { src: "/images/2026/event/jls-110.avif", alt: "Britt West of Gallo with Gran Malo founders Moises Guindi and Daniel Schneeweiss, accepting the Leaders Choice award" },
   { src: "/images/2026/event/jls-113.avif", alt: "Deb Donohoe of The Duckhorn Portfolio accepts the Leaders Choice award for Decoy Featherweight" },
-  { src: "/images/2026/event/jls-118.avif", alt: "Kate Latts of Heaven Hill Brands accepts the Leaders Choice award for Lunazul" },
-  { src: "/images/2026/event/jls-121.avif", alt: "Jennifer Purcell accepts the Leaders Choice award for Avaline" },
-  { src: "/images/2026/event/jls-49.avif", alt: "Curtis Mann, Shannon Coursey and Jeremy Noye" },
-  { src: "/images/2026/event/jls-52.avif", alt: "Anuj Mittal, Jonathan Yusen, Adithya Bathena and Ugo Fiorenzo" },
-  { src: "/images/2026/event/jls-55.avif", alt: "Mark Chaplin, Sunil Khurana and Bryan Melo" },
-  { src: "/images/2026/event/jls-63.avif", alt: "Jake Cohen, Marilyn Krieger, Dina Opici, Andrew McMurray, Mark Pinho, Mrs. Pinho and Miriam Morgenstern" },
-  { src: "/images/2026/event/jls-66.avif", alt: "Nicole Hakli, Deb Donohoe, Dani O’Brien, Shannon Hurley and Vincent Piazza" },
-  { src: "/images/2026/event/jls-72.avif", alt: "Britt West and David Chaplin" },
-  { src: "/images/2026/event/jls-73.avif", alt: "Charles Merinoff and Kim Leonard" },
+  { src: "/images/2026/event/jls-118.avif", alt: "Kate Latts, co-president of Heaven Hill Brands, accepts the Leaders Choice award for Lunazul" },
+  { src: "/images/2026/event/jls-121.avif", alt: "Jennifer Purcell, CEO of Avaline, accepts the Leaders Choice award for Avaline" },
+  { src: "/images/2026/event/jls-49.avif", alt: "Curtis Mann of Albertsons Companies, Shannon Coursey of Wilson Daniels and Jeremy Noye of Morrell & Co." },
+  { src: "/images/2026/event/jls-52.avif", alt: "Anuj Mittal of Zipps Liquors, Jonathan Yusen of Allied Beverage Group, Adithya Bathena and Ugo Fiorenzo of Campari America" },
+  { src: "/images/2026/event/jls-55.avif", alt: "Mark Chaplin of Southern Glazer’s with Sunil Khurana and Bryan Melo" },
+  { src: "/images/2026/event/jls-63.avif", alt: "Jake Cohen, Marilyn Krieger and Dina Opici of Opici Family Distributing, Andrew McMurray of Zachys, Mark Pinho of Wine.com and guest, and Miriam Morgenstern of Wine Spectator" },
+  { src: "/images/2026/event/jls-66.avif", alt: "The Duckhorn Portfolio team: Nicole Hakli, Deb Donohoe, Dani O’Brien, Shannon Hurley and Vincent Piazza" },
+  { src: "/images/2026/event/jls-72.avif", alt: "Britt West of Gallo and David Chaplin of Southern Glazer’s" },
+  { src: "/images/2026/event/jls-73.avif", alt: "Charles Merinoff of Breakthru Beverage Group and Kim Leonard of Stew Leonard’s" },
 ];
 
 export const eventGallery = {
@@ -220,7 +220,7 @@ export const eventGallery = {
   comingSoon: "Coming soon",
   blurb:
     "Photography from the 43rd annual Market Watch Leaders Awards dinner at The\u00a0Pierre, New\u00a0York, is on its way.",
-  backdrop: "/images/hero.avif",
+  backdrop: "/images/2026/event-backdrop.avif",
 };
 
 /* —— Archive —— */
