@@ -197,8 +197,8 @@ export const eventGallery = {
   heading: "2026 Event Gallery",
   comingSoon: "Coming soon",
   blurb:
-    "Photography from the 43rd annual Market Watch Leaders Awards dinner at The Pierre, New York, is on its way.",
-  backdrop: "/images/event-2026.avif",
+    "Photography from the 43rd annual Market Watch Leaders Awards dinner at The\u00a0Pierre, New\u00a0York, is on its way.",
+  backdrop: "/images/hero.avif",
 };
 
 /* —— Archive —— */

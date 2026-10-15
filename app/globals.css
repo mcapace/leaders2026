@@ -32,6 +32,22 @@ html {
   }
 }
 
+/* Even line breaks: balance headings, avoid orphans in running text */
+h1,
+h2,
+h3,
+.section-title,
+.gradient-text {
+  text-wrap: balance;
+}
+
+p,
+li,
+dd,
+figcaption {
+  text-wrap: pretty;
+}
+
 body {
   color: #333;
   font-family: Roboto, sans-serif;

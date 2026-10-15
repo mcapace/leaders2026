@@ -144,7 +144,7 @@ export default function Gallery() {
               lineHeight: "1.5625rem",
             }}
           >
-            Scenes from the Leaders Awards dinner at The Pierre, New York.
+            Scenes from the Leaders Awards dinner at The&nbsp;Pierre, New&nbsp;York.
             Tap any photo to enlarge.
           </p>
         </header>
