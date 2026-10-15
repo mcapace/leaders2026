@@ -191,7 +191,29 @@ export type GalleryImage = { src: string; alt: string };
  * Photos from the October 8, 2026 awards dinner. Leave empty to show the
  * "coming soon" state; add { src, alt } entries to turn the slider on.
  */
-export const galleryImages: GalleryImage[] = [];
+export const galleryImages: GalleryImage[] = [
+  { src: "/images/2026/event/jls-3.avif", alt: "The Leaders 2026 awards, lined up and ready for presentation at The Pierre" },
+  { src: "/images/2026/event/jls-130.avif", alt: "Chad Sokol of Costco accepts the 2026 Market Watch Retailer of the Year award" },
+  { src: "/images/2026/event/jls-84.avif", alt: "The ABC Fine Wine & Spirits team accepts its Market Watch Leaders award" },
+  { src: "/images/2026/event/jls-86.avif", alt: "Mike Fisch of Gary’s Wine & Marketplace accepts his Market Watch Leaders award" },
+  { src: "/images/2026/event/jls-88.avif", alt: "Meghan Cimini-Jones of Yankee Spirits accepts her Market Watch Leaders award" },
+  { src: "/images/2026/event/jls-96.avif", alt: "Olivier Kielwasser and Kristen Bennett of The Fresh Market" },
+  { src: "/images/2026/event/jls-99.avif", alt: "Mark Pinho of Wine.com accepts his Market Watch Leaders award" },
+  { src: "/images/2026/event/jls-102.avif", alt: "Anuj Mittal of Zipps Liquors accepts his Market Watch Leaders award" },
+  { src: "/images/2026/event/jls-106.avif", alt: "Adam Acquistapace of Acquistapace’s accepts the Best Marketing award" },
+  { src: "/images/2026/event/jls-109.avif", alt: "Stew Leonard Jr., Kim Leonard and Blake Leonard of Stew Leonard’s accept the Community Service award" },
+  { src: "/images/2026/event/jls-110.avif", alt: "Britt West, Moises Guindi and Daniel Schneeweiss of Gallo accept the Leaders Choice award for Gran Malo" },
+  { src: "/images/2026/event/jls-113.avif", alt: "Deb Donohoe of The Duckhorn Portfolio accepts the Leaders Choice award for Decoy Featherweight" },
+  { src: "/images/2026/event/jls-118.avif", alt: "Kate Latts of Heaven Hill Brands accepts the Leaders Choice award for Lunazul" },
+  { src: "/images/2026/event/jls-121.avif", alt: "Jennifer Purcell accepts the Leaders Choice award for Avaline" },
+  { src: "/images/2026/event/jls-49.avif", alt: "Curtis Mann, Shannon Coursey and Jeremy Noye" },
+  { src: "/images/2026/event/jls-52.avif", alt: "Anuj Mittal, Jonathan Yusen, Adithya Bathena and Ugo Fiorenzo" },
+  { src: "/images/2026/event/jls-55.avif", alt: "Mark Chaplin, Sunil Khurana and Bryan Melo" },
+  { src: "/images/2026/event/jls-63.avif", alt: "Jake Cohen, Marilyn Krieger, Dina Opici, Andrew McMurray, Mark Pinho, Mrs. Pinho and Miriam Morgenstern" },
+  { src: "/images/2026/event/jls-66.avif", alt: "Nicole Hakli, Deb Donohoe, Dani O’Brien, Shannon Hurley and Vincent Piazza" },
+  { src: "/images/2026/event/jls-72.avif", alt: "Britt West and David Chaplin" },
+  { src: "/images/2026/event/jls-73.avif", alt: "Charles Merinoff and Kim Leonard" },
+];
 
 export const eventGallery = {
   heading: "2026 Event Gallery",
