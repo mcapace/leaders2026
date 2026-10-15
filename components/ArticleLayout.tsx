@@ -144,6 +144,41 @@ export function ArticleBody({
   return <div className="article-body">{rendered}</div>;
 }
 
+function PrevNext({ current }: { current: string }) {
+  const i = articles.findIndex((a) => a.slug === current);
+  const prev = i > 0 ? articles[i - 1] : null;
+  const next = i >= 0 && i < articles.length - 1 ? articles[i + 1] : null;
+  if (!prev && !next) return null;
+  const item = (a: Article, dir: "prev" | "next") => (
+    <Link
+      href={`/articles/${a.slug}`}
+      className={
+        "group flex flex-1 flex-col rounded-lg border border-[#fee2b2] bg-[#fee2b21a] p-4 no-underline transition hover:border-[#cc9933] " +
+        (dir === "next" ? "text-right" : "text-left")
+      }
+    >
+      <span className="text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#98652b]">
+        {dir === "prev" ? "‹ Previous" : "Next ›"}
+      </span>
+      <span
+        className="mt-1 text-[1.05rem] font-medium leading-tight text-[#141414] group-hover:underline"
+        style={{ letterSpacing: "-0.02em" }}
+      >
+        {a.title}
+      </span>
+      <span className="mt-1 text-[0.72rem] text-[#141414]" style={{ opacity: 0.6 }}>
+        {a.kicker}
+      </span>
+    </Link>
+  );
+  return (
+    <nav aria-label="Previous and next articles" className="mx-auto mt-12 flex w-full max-w-[44rem] flex-col gap-3 sm:flex-row">
+      {prev ? item(prev, "prev") : <div className="flex-1" />}
+      {next ? item(next, "next") : <div className="flex-1" />}
+    </nav>
+  );
+}
+
 export function MoreArticles({ current }: { current: string }) {
   const others = articles.filter((a) => a.slug !== current);
   return (
@@ -152,7 +187,8 @@ export function MoreArticles({ current }: { current: string }) {
       style={{ borderColor: "#fee2b2", backgroundColor: "#fefcf7" }}
     >
       <div className="mx-auto w-full max-w-[81.25rem]">
-        <h2 className="section-title gradient-text text-center" style={{ fontSize: "2.4rem" }}>
+        <PrevNext current={current} />
+        <h2 className="section-title gradient-text mt-14 text-center" style={{ fontSize: "2.4rem" }}>
           More from the 2026 issue
         </h2>
         <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">

@@ -29,8 +29,8 @@ export default function LeadersChoice() {
               lineHeight: "1.5625rem",
             }}
           >
-            The brands and the industry executive that Market Watch Leaders
-            chose as this year&apos;s standouts.
+            The year&apos;s standout brands, new products, and the executive
+            who reshaped the second tier, as chosen by Market Watch.
           </p>
         </header>
 
