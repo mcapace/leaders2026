@@ -97,7 +97,7 @@ export default function Hero() {
               {...fadeUp}
               transition={{ duration: 0.6, delay: 0.2, ease }}
             >
-              43rd Annual · October 8, 2026 · The Pierre, New York
+              43rd Annual · October 8, 2026 · The&nbsp;Pierre, New&nbsp;York
             </motion.p>
 
             <motion.h1
