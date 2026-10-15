@@ -40,8 +40,9 @@ export default function Archive() {
               lineHeight: "1.5625rem",
             }}
           >
-            Leaders Magazine Archive. The 2026 issue is featured; click a
-            cover to read.
+            Seven years of Market Watch Leaders. Open the 2026 issue to read
+            this year&apos;s profiles, or revisit 2024 and 2025 in the digital
+            edition.
           </p>
         </header>
 

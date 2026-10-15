@@ -120,7 +120,8 @@ export default function Gallery() {
               lineHeight: "1.5625rem",
             }}
           >
-            Photography from this year&apos;s Market Watch Leaders profiles.
+            Inside the stores, warehouses, and swim schools of the 2026
+            Leaders. Tap any photo to enlarge.
           </p>
         </header>
 
@@ -150,22 +151,29 @@ export default function Gallery() {
             onTouchEnd={onTouchEnd}
           >
             {visibleIndices.map((imgIndex) => (
-              <motion.button
-                key={`${current}-${imgIndex}`}
-                type="button"
-                className="relative aspect-[4/3] w-full cursor-pointer overflow-hidden rounded-md border-0 bg-transparent p-0 text-left"
-                onClick={() => setLightboxIndex(imgIndex)}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Image
-                  src={galleryImages[imgIndex].src}
-                  alt={galleryImages[imgIndex].alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </motion.button>
+              <div key={`${current}-${imgIndex}`} className="min-w-0">
+                <motion.button
+                  type="button"
+                  className="relative aspect-[4/3] w-full cursor-pointer overflow-hidden rounded-md border-0 bg-transparent p-0 text-left"
+                  onClick={() => setLightboxIndex(imgIndex)}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Image
+                    src={galleryImages[imgIndex].src}
+                    alt={galleryImages[imgIndex].alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </motion.button>
+                <p
+                  className="mt-2 text-[0.8rem] leading-snug text-[#141414]"
+                  style={{ opacity: 0.7 }}
+                >
+                  {galleryImages[imgIndex].alt}
+                </p>
+              </div>
             ))}
           </div>
         </div>

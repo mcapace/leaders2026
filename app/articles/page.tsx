@@ -17,7 +17,7 @@ export default function ArticlesIndex() {
       <main style={{ backgroundColor: "#fefcf7" }}>
         <section className="mx-auto w-full max-w-[81.25rem] px-5 pb-20 pt-12 sm:px-8">
           <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-[minmax(14rem,20rem)_1fr] md:gap-12">
-            <div className="relative mx-auto aspect-[2475/3300] w-full max-w-[18rem] overflow-hidden rounded-lg shadow-[0_12px_40px_rgba(0,0,0,0.25)] md:max-w-none">
+            <div className="relative mx-auto aspect-[1000/1318] w-full max-w-[18rem] overflow-hidden rounded-lg shadow-[0_12px_40px_rgba(0,0,0,0.25)] md:max-w-none">
               <Image
                 src="/images/2026/covers/leaders-2026.avif"
                 alt="Market Watch Leaders 2026 cover featuring Chad Sokol of Costco Wholesale Corp."

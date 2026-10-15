@@ -22,6 +22,16 @@
   --color-4: #c93;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   color: #333;
   font-family: Roboto, sans-serif;

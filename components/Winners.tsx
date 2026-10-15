@@ -25,7 +25,7 @@ function WinnerCard({
       transition={{ duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="flex w-full flex-col justify-between min-[480px]:w-[40%]">
-        <div className="relative mb-3 aspect-[3/4] w-full overflow-hidden rounded-md">
+        <div className="relative aspect-[3/4] w-full overflow-hidden rounded-md min-[480px]:mb-3">
           <Image
             src={winner.image}
             alt={winner.name}
@@ -34,7 +34,7 @@ function WinnerCard({
             sizes="(max-width: 480px) 100vw, (max-width: 768px) 40vw, 20vw"
           />
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="hidden flex-wrap gap-2 min-[480px]:flex">
           <Link
             href={`/articles/${winner.articleSlug}`}
             className="btn-gold small inline-block no-underline"
@@ -44,7 +44,7 @@ function WinnerCard({
         </div>
       </div>
 
-      <div className="w-full px-3 py-0 min-[480px]:w-[55%] min-[480px]:py-3">
+      <div className="w-full px-3 pb-2 pt-4 min-[480px]:w-[55%] min-[480px]:py-3">
         <div
           className="font-bold uppercase leading-none text-[#98652b]"
           style={{ fontSize: "0.75rem" }}
@@ -89,6 +89,12 @@ function WinnerCard({
         >
           {winner.bio}
         </p>
+        <Link
+          href={`/articles/${winner.articleSlug}`}
+          className="btn-gold small inline-block no-underline min-[480px]:hidden"
+        >
+          read article
+        </Link>
       </div>
     </motion.article>
   );
@@ -115,9 +121,10 @@ export default function Winners() {
               lineHeight: "1.5625rem",
             }}
           >
-            Meet this year&apos;s honorees, profiled in the Leaders 2026 issue
-            of Market Watch and recognized for excellence in innovation,
-            service, and impact.
+            Eleven retailers from six companies join the Leaders class of
+            2026, alongside this year&apos;s Retailer of the Year and two
+            Alumni Award winners. Every profile is from the Leaders 2026
+            issue.
           </p>
         </header>
 
