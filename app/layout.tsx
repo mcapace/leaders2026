@@ -3,11 +3,14 @@ import "./globals.css";
 
 const title = "The 2026 Market Watch Leaders Awards";
 const description =
-  "October 8th, 2026 at Pierre Hotel, NYC. Hosted by Marvin R. Shanken, Chairman, M. Shanken Communications, Inc. Honoring the most progressive wine & spirits merchants in North America.";
+  "Meet the 2026 Market Watch Leaders: Retailer of the Year Chad Sokol of Costco, the Class of 2026, the Alumni Award winners, and the Leaders Choice Awards. Honored October 8, 2026 at The Pierre, New York City.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://leaders2025.marketwatchmag.com"),
-  title,
+  metadataBase: new URL("https://leaders2026.marketwatchmag.com"),
+  title: {
+    default: title,
+    template: "%s | Market Watch Leaders 2026",
+  },
   description,
   openGraph: {
     title,
@@ -15,8 +18,8 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/hero.avif",
-        alt: title,
+        url: "/images/2026/covers/leaders-2026.avif",
+        alt: "Market Watch Leaders 2026 cover featuring Chad Sokol of Costco Wholesale Corp.",
       },
     ],
   },
@@ -24,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/images/hero.avif"],
+    images: ["/images/2026/covers/leaders-2026.avif"],
   },
   icons: {
     icon: "/favicon.ico",

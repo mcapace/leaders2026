@@ -787,3 +787,21 @@ body {
 }
 
 
+
+/* —— Article pages (/articles/[slug]) —— */
+.article-body .article-p {
+  color: #141414;
+  opacity: 0.88;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  margin: 0 0 1.25rem;
+}
+
+.article-body .article-p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.6rem;
+  line-height: 0.85;
+  font-weight: 700;
+  color: #98652b;
+  padding: 0.25rem 0.5rem 0 0;
+}

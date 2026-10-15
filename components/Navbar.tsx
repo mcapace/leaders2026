@@ -35,7 +35,7 @@ function EventClockWidget({
       </div>
 
       <p className="pt-2 text-center text-[0.52rem] font-semibold uppercase tracking-[0.2em] text-[#fee2b2]/85">
-        Days until event
+        {expired ? "2026 Leaders Awards" : "Days until event"}
       </p>
 
       <div
@@ -45,9 +45,12 @@ function EventClockWidget({
         aria-atomic="true"
       >
         {expired ? (
-          <p className="py-1 text-center text-lg font-semibold leading-tight text-[#cc9933] sm:text-xl">
-            Event day
-          </p>
+          <Link
+            href="#winners"
+            className="py-1 text-center text-base font-semibold leading-tight text-[#cc9933] no-underline transition hover:text-[#fee2b2] sm:text-lg"
+          >
+            Meet the winners ›
+          </Link>
         ) : (
           <>
             <span className="tabular-nums text-3xl font-bold leading-none text-white sm:text-4xl">

@@ -109,8 +109,19 @@ export default function Gallery() {
       <div className="mx-auto w-full max-w-[81.25rem]">
         <header className="mx-auto max-w-[40.625rem] px-6 text-center">
           <h2 className="section-title gradient-text">
-            2024 Celebration Highlights
+            Inside the 2026 Issue
           </h2>
+          <p
+            className="mt-4"
+            style={{
+              opacity: 0.8,
+              color: "#141414",
+              fontSize: "1.0625rem",
+              lineHeight: "1.5625rem",
+            }}
+          >
+            Photography from this year&apos;s Market Watch Leaders profiles.
+          </p>
         </header>
 
         <div className="relative mx-auto mt-12 max-w-5xl px-10 md:px-12">
@@ -148,8 +159,8 @@ export default function Gallery() {
                 transition={{ duration: 0.2 }}
               >
                 <Image
-                  src={galleryImages[imgIndex]}
-                  alt=""
+                  src={galleryImages[imgIndex].src}
+                  alt={galleryImages[imgIndex].alt}
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -197,14 +208,17 @@ export default function Gallery() {
                 >
                   <div className="relative aspect-[4/3] w-full max-h-[75vh] min-h-[200px]">
                     <Image
-                      src={galleryImages[lightboxIndex]}
-                      alt=""
+                      src={galleryImages[lightboxIndex].src}
+                      alt={galleryImages[lightboxIndex].alt}
                       fill
                       className="object-contain"
                       sizes="100vw"
                       priority
                     />
                   </div>
+                  <p className="max-w-3xl text-center text-sm text-[#fee2b2]/85">
+                    {galleryImages[lightboxIndex].alt}
+                  </p>
                   <div className="flex flex-wrap items-center justify-center gap-3">
                     <button
                       type="button"

@@ -80,11 +80,11 @@ export default function Hero() {
             {...fadeUp}
             transition={{ duration: 0.65, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            October 8th, 2026 at Pierre Hotel, NYC.
+            Held October 8, 2026 at The Pierre, New York City.
             <br />
             Hosted by Marvin R. Shanken, Chairman, M. Shanken Communications, Inc.
             Honoring the most progressive wine &amp; spirits merchants in North
-            America.
+            America, as featured in the Leaders 2026 issue of Market Watch.
           </motion.p>
 
           <motion.div
@@ -92,9 +92,18 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
-            <a href="#contact" className="btn-gold inline-block no-underline">
-              Contact For More Information
-            </a>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <a href="#winners" className="btn-gold inline-block no-underline">
+                Meet the 2026 Winners
+              </a>
+              <a
+                href="#contact"
+                className="btn-alt inline-block no-underline"
+                style={{ fontSize: "0.8rem", padding: "0.85rem 1.6rem" }}
+              >
+                Contact For More Information
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>
