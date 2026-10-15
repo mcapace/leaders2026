@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { NEXT_EVENT, publications, siteLinks } from "@/lib/data";
+import { NEXT_EVENT, corporateLinks, publications, siteLinks } from "@/lib/data";
 
 const headingClass =
   "m-0 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#cc9933]";
@@ -16,6 +16,40 @@ export default function Footer() {
         borderTop: "0.0625rem solid rgba(152, 101, 43, 0.5)",
       }}
     >
+      {/* Publications band */}
+      <div className="border-b border-white/10">
+        <div className="mx-auto w-[90%] max-w-container py-10">
+          <p className={headingClass + " text-center"}>
+            From the publishers of
+          </p>
+          <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-7 md:gap-x-14">
+            {publications.map((p) => (
+              <li key={p.href}>
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={p.description ? `${p.label}: ${p.description}` : p.label}
+                  className="block opacity-80 transition hover:opacity-100"
+                >
+                  {p.logo ? (
+                    <Image
+                      src={p.logo.src}
+                      alt={p.label}
+                      width={p.logo.width}
+                      height={p.logo.height}
+                      className="h-7 w-auto sm:h-8"
+                    />
+                  ) : (
+                    <span className={linkClass}>{p.label}</span>
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
       <div className="mx-auto grid w-[90%] max-w-container grid-cols-1 gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr] md:gap-12">
         {/* Brand */}
         <div>
@@ -96,11 +130,11 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Publications */}
+        {/* Publications + company */}
         <div>
-          <h2 className={headingClass}>M. Shanken Publications</h2>
+          <h2 className={headingClass}>M. Shanken Communications</h2>
           <ul className="mt-4 flex flex-col gap-1.5">
-            {publications.map((p) => (
+            {[...corporateLinks, ...publications].map((p) => (
               <li key={p.href}>
                 <a
                   href={p.href}

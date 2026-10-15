@@ -6,7 +6,7 @@ const description =
   "The 43rd annual Market Watch Leaders Awards, held October 8, 2026 at The Pierre, New York. Meet Retailer of the Year Chad Sokol of Costco, the Class of 2026, the Alumni Award winners, and the Leaders Choice Awards, and read every profile from the issue. Save the date: the 44th annual awards are October 7, 2027.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://leaders2026.marketwatchmag.com"),
+  metadataBase: new URL("https://leaders.marketwatchmag.com"),
   title: {
     default: title,
     template: "%s | Market Watch Leaders 2026",

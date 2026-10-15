@@ -277,15 +277,55 @@ export const siteLinks: NavLink[] = [
   { href: "/#contact", label: "Contact" },
 ];
 
-export type Publication = { href: string; label: string; description?: string };
+export type Publication = {
+  href: string;
+  label: string;
+  description?: string;
+  /** White-on-transparent logo under public/images/logos; sized by intrinsic px */
+  logo?: { src: string; width: number; height: number };
+};
 
+/** M. Shanken Communications publications, shown with logos in the footer */
 export const publications: Publication[] = [
+  {
+    href: "https://www.marketwatchmag.com/",
+    label: "Market Watch",
+    description: "Market intelligence on spirits, wine and beer",
+    logo: { src: "/images/logos/market-watch.png", width: 1062, height: 160 },
+  },
+  {
+    href: "https://www.winespectator.com/",
+    label: "Wine Spectator",
+    description: "The world’s leading authority on wine",
+    logo: { src: "/images/logos/wine-spectator.png", width: 595, height: 160 },
+  },
+  {
+    href: "https://www.cigaraficionado.com/",
+    label: "Cigar Aficionado",
+    description: "The magazine for the good life",
+    logo: { src: "/images/logos/cigar-aficionado.png", width: 802, height: 160 },
+  },
+  {
+    href: "https://whiskyadvocate.com/",
+    label: "Whisky Advocate",
+    description: "America’s leading whisky magazine",
+    logo: { src: "/images/logos/whisky-advocate.png", width: 466, height: 160 },
+  },
+  {
+    href: "https://www.mshanken.com/impact/",
+    label: "Impact",
+    description: "Impact newsletter and Impact Databank",
+    logo: { src: "/images/logos/impact.png", width: 444, height: 160 },
+  },
+  {
+    href: "https://www.shankennewsdaily.com/",
+    label: "Shanken News Daily",
+    description: "Daily news for the beverage alcohol trade",
+    logo: { src: "/images/logos/shanken-news-daily.png", width: 453, height: 160 },
+  },
+];
+
+export const corporateLinks: Publication[] = [
   { href: "https://www.mshanken.com/", label: "M. Shanken Communications", description: "50+ years of publishing with integrity" },
-  { href: "https://www.marketwatchmag.com/", label: "Market Watch", description: "Market intelligence on spirits, wine and beer" },
-  { href: "https://www.winespectator.com/", label: "Wine Spectator" },
-  { href: "https://www.cigaraficionado.com/", label: "Cigar Aficionado" },
-  { href: "https://whiskyadvocate.com/", label: "Whisky Advocate" },
-  { href: "https://www.mshanken.com/impact/", label: "Impact", description: "Impact newsletter and Impact Databank" },
-  { href: "https://www.shankennewsdaily.com/", label: "Shanken News Daily" },
   { href: "https://www.mshanken.com/events/", label: "Events", description: "WhiskyFest, Big Smoke, Wine Experience and more" },
 ];
