@@ -43,9 +43,9 @@ function SaveTheDate() {
 }
 
 /**
- * Layered backgrounds (first = painted on top). The photo is the wine
- * display from the Retailer of the Year story; the gradients keep the
- * headline and nav legible and fade the edges into the page black.
+ * Layered backgrounds (first = painted on top). The photo is from the
+ * Leaders Awards dinner at The Pierre; the gradients keep the headline
+ * and nav legible and fade the edges into the page black.
  */
 const heroBackground: CSSProperties = {
   backgroundColor: "#141414",
@@ -54,7 +54,7 @@ const heroBackground: CSSProperties = {
     linear-gradient(90deg, rgba(20, 20, 20, 0.85) 0%, rgba(20, 20, 20, 0.35) 55%, rgba(20, 20, 20, 0.15) 100%),
     url('/images/hero-2026.avif')
   `,
-  backgroundPosition: "0 0, 0 0, 50% 40%",
+  backgroundPosition: "0 0, 0 0, 50% 35%",
   backgroundRepeat: "no-repeat, no-repeat, no-repeat",
   backgroundSize: "100% 100%, 100% 100%, cover",
 };

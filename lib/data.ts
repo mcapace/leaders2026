@@ -184,28 +184,22 @@ export const leadersChoiceAwards: LeadersChoiceAward[] = [
   },
 ];
 
-/* —— Gallery: photography from the Leaders 2026 issue —— */
+/* —— Event gallery —— */
 export type GalleryImage = { src: string; alt: string };
 
-export const galleryImages: GalleryImage[] = [
-  { src: "/images/2026/photos/costco-exterior.avif", alt: "Costco warehouse exterior. Costco operates more than 900 warehouses globally." },
-  { src: "/images/2026/photos/costco-wine.avif", alt: "Wooden wine boxes on the floor at Costco, where wine makes up 50% of beverage alcohol sales." },
-  { src: "/images/2026/photos/costco-team.avif", alt: "Costco’s beverage buying team." },
-  { src: "/images/2026/photos/abc-selections.avif", alt: "The World-Class Selections whiskey wall at ABC Fine Wine & Spirits." },
-  { src: "/images/2026/photos/abc-store.avif", alt: "An ABC Fine Wine & Spirits store exterior in Florida." },
-  { src: "/images/2026/photos/garys-aisles.avif", alt: "Wine aisles at Gary’s Wine & Marketplace, where wine is 65% of the business." },
-  { src: "/images/2026/photos/yankee-beer-cave.avif", alt: "The beer cave at Yankee Spirits, which stocks about 3,000 beer SKUs." },
-  { src: "/images/2026/photos/yankee-exterior.avif", alt: "A Yankee Spirits store exterior in Massachusetts." },
-  { src: "/images/2026/photos/fresh-market-exterior.avif", alt: "A Fresh Market store exterior. The chain operates 172 stores across 22 states." },
-  { src: "/images/2026/photos/fresh-market-wine.avif", alt: "The reserve wine selection at The Fresh Market." },
-  { src: "/images/2026/photos/winecom-warehouse.avif", alt: "Inside a Wine.com fulfillment warehouse." },
-  { src: "/images/2026/photos/winecom-packing.avif", alt: "Order packing at Wine.com." },
-  { src: "/images/2026/photos/zipps-interior.avif", alt: "Inside a Zipps Liquor store, designed so shoppers find what they need within 30 seconds." },
-  { src: "/images/2026/photos/zipps-exterior.avif", alt: "A Zipps Liquor store exterior in Texas." },
-  { src: "/images/2026/photos/acquistapace-spirits.avif", alt: "The spirits aisle at Acquistapace’s in Covington, Louisiana." },
-  { src: "/images/2026/photos/stew-swim-school.avif", alt: "Stew Leonard Jr., Kim Leonard, and Ryann Leonard Grossbard at a Stewie the Duck swim school." },
-  { src: "/images/2026/photos/stew-interior.avif", alt: "Inside a Stew Leonard’s Wine & Spirits store." },
-];
+/**
+ * Photos from the October 8, 2026 awards dinner. Leave empty to show the
+ * "coming soon" state; add { src, alt } entries to turn the slider on.
+ */
+export const galleryImages: GalleryImage[] = [];
+
+export const eventGallery = {
+  heading: "2026 Event Gallery",
+  comingSoon: "Coming soon",
+  blurb:
+    "Photography from the 43rd annual Market Watch Leaders Awards dinner at The Pierre, New York, is on its way.",
+  backdrop: "/images/hero-2026.avif",
+};
 
 /* —— Archive —— */
 const LEADERS_2024_IPT = "b2a88fc3-9b32-4912-953d-f7635166cc6e";

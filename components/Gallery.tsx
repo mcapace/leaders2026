@@ -1,24 +1,18 @@
 "use client";
 
-import { galleryImages } from "@/lib/data";
+import { eventGallery, galleryImages } from "@/lib/data";
+import { Camera, ChevronLeft, ChevronRight, Close } from "@/components/Icons";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import type { CSSProperties } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
-const arrowBtnStyle: CSSProperties = {
-  backgroundImage:
-    "linear-gradient(135deg, #98652b, #fee2b2 51%, #cc9933)",
-  border: "0.0625rem solid #cc9933",
-  padding: "1.15rem",
-  fontSize: "1.3rem",
-  lineHeight: 1,
-  borderRadius: "100%",
-};
+const arrowBtnClass =
+  "flex h-11 w-11 items-center justify-center rounded-full border border-[#98652b]/60 bg-[#fefcf7]/90 text-[#98652b] shadow-[0_4px_14px_rgba(20,20,20,0.12)] backdrop-blur transition hover:border-[#cc9933] hover:bg-[#fee2b2] hover:text-[#141414] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc9933]";
 
 const lightboxBtnClass =
-  "rounded-full border border-[#cc9933] bg-transparent px-4 py-2 text-sm font-semibold text-[#fee2b2] transition hover:bg-[#98652b]/30";
+  "flex h-11 w-11 items-center justify-center rounded-full border border-[#fee2b2]/40 bg-white/5 text-[#fee2b2] transition hover:border-[#cc9933] hover:bg-[#fee2b2] hover:text-[#141414] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc9933]";
+
 
 export default function Gallery() {
   const [current, setCurrent] = useState(0);
@@ -82,16 +76,46 @@ export default function Gallery() {
     return (
       <section
         id="gallery"
-        className="border-y px-4 py-24"
+        className="relative overflow-hidden border-y px-4 py-24 text-white"
         style={{
-          backgroundColor: "#fefcf7",
-          borderColor: "#fee2b2",
+          backgroundColor: "#141414",
+          borderColor: "#98652b66",
           borderWidth: "0.0625rem",
+          backgroundImage: `linear-gradient(180deg, rgba(20,20,20,0.88) 0%, rgba(20,20,20,0.72) 50%, rgba(20,20,20,0.92) 100%), url('${eventGallery.backdrop}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "50% 35%",
         }}
       >
-        <p className="text-center text-neutral-600">
-          Add gallery images in lib/data.ts.
-        </p>
+        <div className="mx-auto w-full max-w-[81.25rem]">
+          <motion.div
+            className="mx-auto max-w-[40.625rem] px-6 text-center"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#cc9933]/70 px-3.5 py-1.5 text-[0.62rem] font-bold uppercase tracking-[0.2em] text-[#fee2b2]">
+              <Camera size={16} />
+              {eventGallery.comingSoon}
+            </span>
+            <h2 className="section-title gradient-text mt-5">
+              {eventGallery.heading}
+            </h2>
+            <p
+              className="mt-2 text-white"
+              style={{ opacity: 0.8, fontSize: "1.0625rem", lineHeight: "1.5625rem" }}
+            >
+              {eventGallery.blurb}
+            </p>
+            <a
+              href="#contact"
+              className="btn-alt mt-8 inline-block no-underline"
+              style={{ fontSize: "0.72rem", padding: "0.8rem 1.4rem" }}
+            >
+              Ask about event photos
+            </a>
+          </motion.div>
+        </div>
       </section>
     );
   }
@@ -109,7 +133,7 @@ export default function Gallery() {
       <div className="mx-auto w-full max-w-[81.25rem]">
         <header className="mx-auto max-w-[40.625rem] px-6 text-center">
           <h2 className="section-title gradient-text">
-            Inside the 2026 Issue
+            {eventGallery.heading}
           </h2>
           <p
             className="mt-4"
@@ -120,8 +144,8 @@ export default function Gallery() {
               lineHeight: "1.5625rem",
             }}
           >
-            Inside the stores, warehouses, and swim schools of the 2026
-            Leaders. Tap any photo to enlarge.
+            Scenes from the Leaders Awards dinner at The Pierre, New York.
+            Tap any photo to enlarge.
           </p>
         </header>
 
@@ -129,20 +153,18 @@ export default function Gallery() {
           <button
             type="button"
             aria-label="Previous slides"
-            className="absolute -left-3 top-1/2 z-10 -translate-y-1/2 text-[#98652b] shadow-sm transition hover:opacity-90"
-            style={arrowBtnStyle}
+            className={arrowBtnClass + " absolute -left-1 top-1/2 z-10 -translate-y-1/2 md:-left-2"}
             onClick={prev}
           >
-            ‹
+            <ChevronLeft />
           </button>
           <button
             type="button"
             aria-label="Next slides"
-            className="absolute -right-3 top-1/2 z-10 -translate-y-1/2 text-[#98652b] shadow-sm transition hover:opacity-90"
-            style={arrowBtnStyle}
+            className={arrowBtnClass + " absolute -right-1 top-1/2 z-10 -translate-y-1/2 md:-right-2"}
             onClick={next}
           >
-            ›
+            <ChevronRight />
           </button>
 
           <div
@@ -239,7 +261,7 @@ export default function Gallery() {
                       }}
                       aria-label="Previous image"
                     >
-                      ‹ Prev
+                      <ChevronLeft />
                     </button>
                     <button
                       type="button"
@@ -250,7 +272,7 @@ export default function Gallery() {
                       }}
                       aria-label="Close"
                     >
-                      Close
+                      <Close />
                     </button>
                     <button
                       type="button"
@@ -263,7 +285,7 @@ export default function Gallery() {
                       }}
                       aria-label="Next image"
                     >
-                      Next ›
+                      <ChevronRight />
                     </button>
                   </div>
                 </motion.div>

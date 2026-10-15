@@ -4,6 +4,7 @@ import { leadersChoiceAwards } from "@/lib/data";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "@/components/Icons";
 
 export default function LeadersChoice() {
   return (
@@ -98,8 +99,9 @@ export default function LeadersChoice() {
                   >
                     {award.company}
                   </div>
-                  <span className="mt-auto pt-3 text-[0.7rem] font-semibold uppercase tracking-wider text-[#fee2b2] opacity-70 transition group-hover:opacity-100">
-                    read article ›
+                  <span className="mt-auto inline-flex items-center gap-1.5 pt-3 text-[0.7rem] font-semibold uppercase tracking-wider text-[#fee2b2] opacity-70 transition group-hover:opacity-100">
+                    read article
+                    <ArrowRight size={14} className="transition group-hover:translate-x-0.5" />
                   </span>
                 </Link>
               </motion.div>
