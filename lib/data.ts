@@ -258,3 +258,34 @@ export const navLinks: NavLink[] = [
   { href: "#archive", label: "Archive" },
   { href: "#contact", label: "Contact" },
 ];
+
+/* —— Next event —— */
+export const NEXT_EVENT = {
+  ordinal: "44th Annual",
+  /** Used by the hero countdown; see lib/useCountdown.ts */
+  dateLabel: "October 7, 2027",
+  city: "New York City",
+};
+
+/* —— Footer —— */
+export const siteLinks: NavLink[] = [
+  { href: "/#winners", label: "2026 Award Winners" },
+  { href: "/#leaders-choice", label: "Leaders Choice Awards" },
+  { href: "/articles", label: "Read the 2026 Issue" },
+  { href: "/#gallery", label: "Gallery" },
+  { href: "/#archive", label: "Past Issues" },
+  { href: "/#contact", label: "Contact" },
+];
+
+export type Publication = { href: string; label: string; description?: string };
+
+export const publications: Publication[] = [
+  { href: "https://www.mshanken.com/", label: "M. Shanken Communications", description: "50+ years of publishing with integrity" },
+  { href: "https://www.marketwatchmag.com/", label: "Market Watch", description: "Market intelligence on spirits, wine and beer" },
+  { href: "https://www.winespectator.com/", label: "Wine Spectator" },
+  { href: "https://www.cigaraficionado.com/", label: "Cigar Aficionado" },
+  { href: "https://whiskyadvocate.com/", label: "Whisky Advocate" },
+  { href: "https://www.mshanken.com/impact/", label: "Impact", description: "Impact newsletter and Impact Databank" },
+  { href: "https://www.shankennewsdaily.com/", label: "Shanken News Daily" },
+  { href: "https://www.mshanken.com/events/", label: "Events", description: "WhiskyFest, Big Smoke, Wine Experience and more" },
+];

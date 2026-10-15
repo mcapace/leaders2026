@@ -96,9 +96,9 @@ export default function ContactForm() {
               className="mt-4 max-w-md"
               style={{ opacity: 0.8, fontSize: "1.0625rem", lineHeight: 1.5 }}
             >
-              Questions about the Leaders Awards, the 2026 issue, or media
-              requests? Send a note and the Market Watch team will get back to
-              you.
+              Questions about the Leaders Awards, the 2026 issue, the October
+              7, 2027 event, or media requests? Send a note and the Market
+              Watch team will get back to you.
             </p>
           </div>
 

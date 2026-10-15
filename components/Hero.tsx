@@ -4,6 +4,43 @@ import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { NEXT_EVENT } from "@/lib/data";
+import { LEADERS_EVENT_ISO, useDaysUntilEvent } from "@/lib/useCountdown";
+
+function SaveTheDate() {
+  const [mounted, setMounted] = useState(false);
+  const { days, expired } = useDaysUntilEvent(LEADERS_EVENT_ISO);
+  useEffect(() => setMounted(true), []);
+  return (
+    <div
+      className="mt-8 inline-flex items-center gap-4 rounded-lg border border-[#cc9933]/70 px-4 py-3 text-left"
+      style={{ backgroundColor: "rgba(20, 20, 20, 0.55)", backdropFilter: "blur(6px)" }}
+      role="region"
+      aria-label="Save the date for the next Leaders Awards"
+    >
+      <div className="flex flex-col items-center border-r border-[#98652b]/70 pr-4" aria-live="polite">
+        <span className="tabular-nums text-2xl font-bold leading-none text-white sm:text-3xl">
+          {mounted && !expired ? days : "–"}
+        </span>
+        <span className="mt-1 text-[0.5rem] font-semibold uppercase tracking-[0.2em] text-[#fee2b2]">
+          Days
+        </span>
+      </div>
+      <div>
+        <p className="m-0 text-[0.6rem] font-bold uppercase tracking-[0.18em] text-[#cc9933]">
+          Save the date
+        </p>
+        <p className="m-0 mt-0.5 text-[0.95rem] font-semibold leading-tight text-white">
+          {NEXT_EVENT.ordinal} Leaders Awards
+        </p>
+        <p className="m-0 text-[0.8rem] text-[#fee2b2]/85">
+          {NEXT_EVENT.dateLabel} · {NEXT_EVENT.city}
+        </p>
+      </div>
+    </div>
+  );
+}
 
 /**
  * Layered backgrounds (first = painted on top). The photo is the wine
@@ -50,7 +87,7 @@ export default function Hero() {
       style={heroBackground}
     >
       {/* Clear band under the absolute navbar */}
-      <div className="shrink-0 pt-[9rem] sm:pt-[8rem] md:pt-[7.5rem]" aria-hidden />
+      <div className="shrink-0 pt-[9rem] sm:pt-[9.5rem] md:pt-[12rem] lg:pt-[13rem]" aria-hidden />
 
       <div className="flex flex-1 items-center">
         <div className="mx-auto grid w-[90%] max-w-[81.25rem] grid-cols-1 items-center gap-10 pb-14 pt-6 md:grid-cols-[1.25fr_1fr] md:gap-12 md:pb-20 lg:grid-cols-[1.4fr_1fr]">
@@ -104,6 +141,13 @@ export default function Hero() {
               >
                 Read the Issue
               </Link>
+            </motion.div>
+
+            <motion.div
+              {...fadeUp}
+              transition={{ duration: 0.65, delay: 0.75, ease }}
+            >
+              <SaveTheDate />
             </motion.div>
           </div>
 
