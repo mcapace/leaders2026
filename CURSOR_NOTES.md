@@ -20,5 +20,12 @@ Tips that save time when editing this project:
 
 ## Images
 
-- **Archive covers**: copy from the Webflow ZIP into **`public/images/`** (e.g. `archive-2020.avif`, …) before relying on that section locally.
-- **Winner + gallery images**: still served from **`cdn.prod.website-files.com`** until you replace them with local files; `next.config.js` already allows that host.
+- **Archive covers**: `public/images/archive-20xx.avif` (2020–2024, from the Webflow ZIP) plus `public/images/2026/covers/` (2025 + 2026 covers).
+- **2026 winner portraits, headshots, product shots and gallery photos**: local AVIF files under **`public/images/2026/`** (resized from the Leaders 2026 issue PDF and the digital-edition feed). Nothing is hotlinked from Webflow anymore.
+
+## Articles (`/articles`, `/articles/[slug]`)
+
+- Article metadata (titles, deks, bylines, hero/inline figures, key facts, people) lives in **`lib/articles.ts`**.
+- Body text lives in **`lib/articles-content.json`** (`{ slug: [{ type: "p" | "h2" | "byline", text }] }`), extracted from the issue PDF. Edit the JSON directly to fix copy.
+- Inline figures are placed automatically: one figure before each section heading after the first, remaining figures at the end.
+- Winner cards (`lib/data.ts` → `articleSlug`) and the Leaders Choice tiles link to these pages. If the issue is later published on `reader.emagazines.com`, swap the links there.

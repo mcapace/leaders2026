@@ -3,6 +3,7 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
+import LeadersChoice from "@/components/LeadersChoice";
 import Navbar from "@/components/Navbar";
 import Winners from "@/components/Winners";
 
@@ -14,6 +15,7 @@ export default function Home() {
         <Hero />
       </section>
       <Winners />
+      <LeadersChoice />
       <Gallery />
       <Archive />
       <ContactForm />

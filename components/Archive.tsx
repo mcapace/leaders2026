@@ -5,15 +5,17 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-function issueWrapperClass(size: "s" | "_2" | "large"): string {
+function issueWrapperClass(size: "xs" | "s" | "_2" | "large"): string {
   const base = "relative shrink-0";
   switch (size) {
     case "large":
-      return `${base} w-1/2 md:w-[28%] lg:w-[24%]`;
+      return `${base} w-1/2 md:w-[26%] lg:w-[19%]`;
     case "_2":
-      return `${base} min-w-0 flex-1 opacity-100 lg:w-[19%] lg:flex-none`;
+      return `${base} min-w-0 flex-1 opacity-100 lg:w-[15%] lg:flex-none`;
     case "s":
-      return `${base} min-w-0 flex-1 opacity-80 lg:w-[16%] lg:flex-none`;
+      return `${base} min-w-0 flex-1 opacity-80 lg:w-[12.5%] lg:flex-none`;
+    case "xs":
+      return `${base} hidden min-w-0 flex-1 opacity-70 md:block lg:w-[9.5%] lg:flex-none`;
     default:
       return base;
   }
@@ -38,7 +40,8 @@ export default function Archive() {
               lineHeight: "1.5625rem",
             }}
           >
-            Leaders Magazine Archive
+            Leaders Magazine Archive. The 2026 issue is featured; click a
+            cover to read.
           </p>
         </header>
 
@@ -59,7 +62,7 @@ export default function Archive() {
                 key={issue.year}
                 className={issueWrapperClass(issue.size)}
               >
-                {issue.url && issue.featured ? (
+                {issue.url ? (
                   <div className="relative w-full">
                     <Image
                       src={issue.image}
@@ -71,11 +74,11 @@ export default function Archive() {
                     <div className="absolute bottom-0 right-0 p-2">
                       <Link
                         href={issue.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        target={issue.url.startsWith("/") ? undefined : "_blank"}
+                        rel={issue.url.startsWith("/") ? undefined : "noopener noreferrer"}
                         className="btn-alt"
                       >
-                        view issue
+                        {issue.featured ? "read the articles" : "view issue"}
                       </Link>
                     </div>
                   </div>
