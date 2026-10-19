@@ -273,6 +273,8 @@ const readerArticleUrls: Record<string, string> = {
   "anuj-mittal": `${LEADERS_2026_READER_URL}/big-box-alternative#p104`,
   "adam-acquistapace": `${LEADERS_2026_READER_URL}/excelling-across-categories#p110`,
   "stew-leonard": `${LEADERS_2026_READER_URL}/dedication-to-saving-lives#p118`,
+  "best-new-products": `${LEADERS_2026_READER_URL}/best-new-product-awards#p124`,
+  avaline: `${LEADERS_2026_READER_URL}/wine-brand-of-the-year#p126`,
 };
 
 /** Deep link to a printed page of the Leaders 2026 digital edition. */
