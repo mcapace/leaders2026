@@ -244,13 +244,17 @@ export const eventGallery = {
 /* —— Archive —— */
 const LEADERS_2024_IPT = "b2a88fc3-9b32-4912-953d-f7635166cc6e";
 
-/** Leaders 2026 digital edition (eMagazines library). */
-export const LEADERS_2026_ISSUE_URL =
-  "https://library.emagazines.com/library/?plid=97&elt=4c39353f-0ae4-4e08-8799-66593f72685d";
-
 /** eMagazines reader for the Leaders 2026 issue. */
 export const LEADERS_2026_READER_URL =
   "https://reader.emagazines.com/issue/market-watch/leaders-2026";
+
+/**
+ * Leaders 2026 digital edition, opened at the cover. Used by the hero
+ * "Read the Issue" button, the 2026 archive card and the /articles page.
+ * (The eMagazines library landing page for the title is
+ * library.emagazines.com/library/?plid=97&elt=4c39353f-0ae4-4e08-8799-66593f72685d.)
+ */
+export const LEADERS_2026_ISSUE_URL = `${LEADERS_2026_READER_URL}/market-watch-leaders-issue#p1`;
 
 /**
  * The reader numbers pages from the cover, so its `#p<n>` anchor runs two
