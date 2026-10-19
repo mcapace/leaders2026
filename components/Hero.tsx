@@ -3,9 +3,8 @@
 import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import { LEADERS_2026_ISSUE_URL, NEXT_EVENT } from "@/lib/data";
+import { LEADERS_2026_ISSUE_URL, NEXT_EVENT, issuePageUrl } from "@/lib/data";
 import { LEADERS_EVENT_ISO, useDaysUntilEvent } from "@/lib/useCountdown";
 
 function SaveTheDate() {
@@ -159,8 +158,10 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0, rotate: 0 }}
             transition={{ duration: 0.9, delay: 0.5, ease }}
           >
-            <Link
-              href="/articles/chad-sokol"
+            <a
+              href={issuePageUrl(64)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group block no-underline"
               aria-label="Read the Retailer of the Year story: Chad Sokol of Costco Wholesale Corp."
             >
@@ -183,7 +184,7 @@ export default function Hero() {
               <p className="mt-4 text-center text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[#fee2b2]/80 transition group-hover:text-[#fee2b2]">
                 Retailer of the Year · Chad Sokol, Costco
               </p>
-            </Link>
+            </a>
           </motion.div>
         </div>
       </div>

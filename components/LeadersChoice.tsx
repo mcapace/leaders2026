@@ -1,9 +1,8 @@
 "use client";
 
-import { leadersChoiceAwards } from "@/lib/data";
+import { issuePageUrl, leadersChoiceAwards } from "@/lib/data";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight } from "@/components/Icons";
 
 export default function LeadersChoice() {
@@ -37,9 +36,7 @@ export default function LeadersChoice() {
 
         <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-5">
           {leadersChoiceAwards.map((award, i) => {
-            const href = award.anchor
-              ? `/articles/${award.articleSlug}#${award.anchor}`
-              : `/articles/${award.articleSlug}`;
+            const href = issuePageUrl(award.issuePage);
             return (
               <motion.div
                 key={award.id}
@@ -52,8 +49,10 @@ export default function LeadersChoice() {
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
-                <Link
+                <a
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex h-full flex-col rounded-xl border border-[#98652b]/60 bg-[#fee2b20d] p-3 no-underline transition hover:border-[#cc9933] hover:bg-[#fee2b21a] sm:p-4"
                 >
                   <div
@@ -103,7 +102,7 @@ export default function LeadersChoice() {
                     read article
                     <ArrowRight size={14} className="transition group-hover:translate-x-0.5" />
                   </span>
-                </Link>
+                </a>
               </motion.div>
             );
           })}

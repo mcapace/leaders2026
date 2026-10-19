@@ -1,7 +1,7 @@
 "use client";
 
 import type { AwardWinner } from "@/lib/data";
-import { winners } from "@/lib/data";
+import { issuePageUrl, winners } from "@/lib/data";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,12 +34,20 @@ function WinnerCard({
             sizes="(max-width: 480px) 100vw, (max-width: 768px) 40vw, 20vw"
           />
         </div>
-        <div className="hidden flex-wrap gap-2 min-[480px]:flex">
-          <Link
-            href={`/articles/${winner.articleSlug}`}
+        <div className="hidden flex-col items-start gap-2 min-[480px]:flex">
+          <a
+            href={issuePageUrl(winner.issuePage)}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-gold small inline-block no-underline"
           >
             read article
+          </a>
+          <Link
+            href={`/articles/${winner.articleSlug}`}
+            className="text-[0.7rem] font-semibold uppercase tracking-[0.08em] text-[#98652b] no-underline hover:underline"
+          >
+            web version
           </Link>
         </div>
       </div>
@@ -89,12 +97,22 @@ function WinnerCard({
         >
           {winner.bio}
         </p>
-        <Link
-          href={`/articles/${winner.articleSlug}`}
-          className="btn-gold small inline-block no-underline min-[480px]:hidden"
-        >
-          read article
-        </Link>
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 min-[480px]:hidden">
+          <a
+            href={issuePageUrl(winner.issuePage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-gold small inline-block no-underline"
+          >
+            read article
+          </a>
+          <Link
+            href={`/articles/${winner.articleSlug}`}
+            className="mt-6 text-[0.7rem] font-semibold uppercase tracking-[0.08em] text-[#98652b] no-underline hover:underline"
+          >
+            web version
+          </Link>
+        </div>
       </div>
     </motion.article>
   );

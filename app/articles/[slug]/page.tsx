@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Article } from "@/lib/articles";
-import { articles, getArticle, getArticleBlocks } from "@/lib/articles";
+import { articleStartPage, articles, getArticle, getArticleBlocks } from "@/lib/articles";
+import { issuePageUrl } from "@/lib/data";
 import {
   ArticleBody,
   ArticleHeader,
@@ -82,6 +83,16 @@ export default function ArticlePage({ params }: Params) {
               </p>
               <p className="mt-1 text-[0.75rem] text-[#141414]" style={{ opacity: 0.55 }}>
                 Market Watch Leaders 2026 · {article.pages}
+              </p>
+              <p className="mt-4">
+                <a
+                  href={issuePageUrl(articleStartPage(article))}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-alt inline-block no-underline"
+                >
+                  read in the digital edition
+                </a>
               </p>
             </div>
 

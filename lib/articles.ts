@@ -644,3 +644,9 @@ export const articleSections: ArticleSection[] = [
   "Alumni Awards",
   "Leaders Choice Awards",
 ];
+
+/** First printed page of an article, parsed from its page range. */
+export function articleStartPage(article: Article): number {
+  const match = article.pages.match(/\d+/);
+  return match ? Number(match[0]) : 1;
+}

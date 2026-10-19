@@ -10,6 +10,8 @@ export type AwardWinner = {
   id: string;
   /** Article slug under /articles/[slug] */
   articleSlug: string;
+  /** Printed page where the profile starts in the Leaders 2026 issue */
+  issuePage: number;
   category: string;
   name: string;
   company: string;
@@ -23,6 +25,7 @@ export const winners: AwardWinner[] = [
   {
     id: "chad-sokol",
     articleSlug: "chad-sokol",
+    issuePage: 64,
     category: "2026 Retailer of the Year",
     name: "Chad Sokol",
     company: "Costco Wholesale Corp.",
@@ -34,6 +37,7 @@ export const winners: AwardWinner[] = [
   {
     id: "abc-fine-wine-spirits",
     articleSlug: "abc-fine-wine-spirits",
+    issuePage: 72,
     category: "2026 Market Watch Leaders",
     name: "Charlie Bailes IV, Chad Holloway, Sean Kelly, Dave Larue, and Chris Quarles",
     company: "ABC Fine Wine & Spirits",
@@ -45,6 +49,7 @@ export const winners: AwardWinner[] = [
   {
     id: "mike-fisch",
     articleSlug: "mike-fisch",
+    issuePage: 78,
     category: "2026 Market Watch Leader",
     name: "Mike Fisch",
     company: "Gary’s Wine & Marketplace",
@@ -56,6 +61,7 @@ export const winners: AwardWinner[] = [
   {
     id: "meghan-cimini-jones",
     articleSlug: "meghan-cimini-jones",
+    issuePage: 84,
     category: "2026 Market Watch Leader",
     name: "Meghan Cimini-Jones",
     company: "Yankee Spirits",
@@ -67,6 +73,7 @@ export const winners: AwardWinner[] = [
   {
     id: "fresh-market",
     articleSlug: "fresh-market",
+    issuePage: 90,
     category: "2026 Market Watch Leaders",
     name: "Olivier Kielwasser and Kristen Bennett",
     company: "The Fresh Market",
@@ -78,6 +85,7 @@ export const winners: AwardWinner[] = [
   {
     id: "mark-pinho",
     articleSlug: "mark-pinho",
+    issuePage: 96,
     category: "2026 Market Watch Leader",
     name: "Mark Pinho",
     company: "Wine.com",
@@ -89,6 +97,7 @@ export const winners: AwardWinner[] = [
   {
     id: "anuj-mittal",
     articleSlug: "anuj-mittal",
+    issuePage: 102,
     category: "2026 Market Watch Leader",
     name: "Anuj Mittal",
     company: "Zipps Liquors",
@@ -100,6 +109,7 @@ export const winners: AwardWinner[] = [
   {
     id: "adam-acquistapace",
     articleSlug: "adam-acquistapace",
+    issuePage: 108,
     category: "Best Marketing Award",
     name: "Adam Acquistapace",
     company: "Acquistapace’s",
@@ -111,6 +121,7 @@ export const winners: AwardWinner[] = [
   {
     id: "stew-leonard",
     articleSlug: "stew-leonard",
+    issuePage: 116,
     category: "Community Service Award",
     name: "Stew Leonard Jr.",
     company: "Stew Leonard’s Wine & Spirits",
@@ -132,6 +143,8 @@ export type LeadersChoiceAward = {
   imageStyle: "product" | "portrait";
   articleSlug: string;
   anchor?: string;
+  /** Printed page in the Leaders 2026 issue */
+  issuePage: number;
 };
 
 export const leadersChoiceAwards: LeadersChoiceAward[] = [
@@ -143,6 +156,7 @@ export const leadersChoiceAwards: LeadersChoiceAward[] = [
     image: "/images/2026/portraits/tom-day.avif",
     imageStyle: "portrait",
     articleSlug: "tom-day",
+    issuePage: 125,
   },
   {
     id: "lunazul",
@@ -152,6 +166,7 @@ export const leadersChoiceAwards: LeadersChoiceAward[] = [
     image: "/images/2026/products/lunazul.avif",
     imageStyle: "product",
     articleSlug: "lunazul",
+    issuePage: 123,
   },
   {
     id: "avaline",
@@ -161,6 +176,7 @@ export const leadersChoiceAwards: LeadersChoiceAward[] = [
     image: "/images/2026/products/avaline.avif",
     imageStyle: "product",
     articleSlug: "avaline",
+    issuePage: 124,
   },
   {
     id: "gran-malo",
@@ -171,6 +187,7 @@ export const leadersChoiceAwards: LeadersChoiceAward[] = [
     imageStyle: "product",
     articleSlug: "best-new-products",
     anchor: "gran-malo",
+    issuePage: 122,
   },
   {
     id: "decoy-featherweight",
@@ -181,6 +198,7 @@ export const leadersChoiceAwards: LeadersChoiceAward[] = [
     imageStyle: "product",
     articleSlug: "best-new-products",
     anchor: "decoy-featherweight",
+    issuePage: 122,
   },
 ];
 
@@ -229,6 +247,19 @@ const LEADERS_2024_IPT = "b2a88fc3-9b32-4912-953d-f7635166cc6e";
 /** Leaders 2026 digital edition (eMagazines library). */
 export const LEADERS_2026_ISSUE_URL =
   "https://library.emagazines.com/library/?plid=97&elt=4c39353f-0ae4-4e08-8799-66593f72685d";
+
+/**
+ * eMagazines reader for the Leaders 2026 issue. Appending `#p<page>` opens
+ * the reader on that printed page (same convention the Leaders 2024 site
+ * used: reader.emagazines.com/issue/market-watch/leaders-2024#p124).
+ */
+export const LEADERS_2026_READER_URL =
+  "https://reader.emagazines.com/issue/market-watch/leaders-2026";
+
+/** Deep link to a printed page of the Leaders 2026 digital edition. */
+export function issuePageUrl(page: number): string {
+  return `${LEADERS_2026_READER_URL}#p${page}`;
+}
 
 export type ArchiveIssue = {
   year: number;
