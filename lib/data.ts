@@ -231,6 +231,14 @@ export const galleryImages: GalleryImage[] = [
   { src: "/images/2026/event/jls-66.avif", alt: "The Duckhorn Portfolio team: Nicole Hakli, Deb Donohoe, Dani O’Brien, Shannon Hurley and Vincent Piazza" },
   { src: "/images/2026/event/jls-72.avif", alt: "Britt West of Gallo and David Chaplin of Southern Glazer’s" },
   { src: "/images/2026/event/jls-73.avif", alt: "Charles Merinoff of Breakthru Beverage Group and Kim Leonard of Stew Leonard’s" },
+  { src: "/images/2026/event/jls-6.avif", alt: "Adam Acquistapace and Steve Acquistapace of Acquistapace’s" },
+  { src: "/images/2026/event/jls-14.avif", alt: "Gene Sullivan and Chad Sokol of Costco" },
+  { src: "/images/2026/event/jls-22.avif", alt: "Kate Latts of Heaven Hill Brands, Marc Sawyer and Amelia Davis" },
+  { src: "/images/2026/event/jls-31.avif", alt: "Hinesh Shah and Sean Kelly of ABC Fine Wine & Spirits" },
+  { src: "/images/2026/event/jls-33.avif", alt: "Marc Taub, Olivier Kielwasser of The Fresh Market and Joan Kielwasser" },
+  { src: "/images/2026/event/jls-35.avif", alt: "Chad Holloway of ABC Fine Wine & Spirits and Lindy Rydman" },
+  { src: "/images/2026/event/jls-37.avif", alt: "Dave Larue and Charlie Bailes of ABC Fine Wine & Spirits with Lock Reddic" },
+  { src: "/images/2026/event/jls-40.avif", alt: "Liz Fisch and Gary Fisch of Gary’s Wine & Marketplace" },
 ];
 
 export const eventGallery = {
