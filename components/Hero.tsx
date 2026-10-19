@@ -4,7 +4,7 @@ import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { LEADERS_2026_ISSUE_URL, NEXT_EVENT, issuePageUrl } from "@/lib/data";
+import { LEADERS_2026_ISSUE_URL, NEXT_EVENT, readerUrlFor } from "@/lib/data";
 import { LEADERS_EVENT_ISO, useDaysUntilEvent } from "@/lib/useCountdown";
 
 function SaveTheDate() {
@@ -159,7 +159,7 @@ export default function Hero() {
             transition={{ duration: 0.9, delay: 0.5, ease }}
           >
             <a
-              href={issuePageUrl(64)}
+              href={readerUrlFor("chad-sokol", 64)}
               target="_blank"
               rel="noopener noreferrer"
               className="group block no-underline"

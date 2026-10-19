@@ -1,6 +1,6 @@
 "use client";
 
-import { issuePageUrl, leadersChoiceAwards } from "@/lib/data";
+import { leadersChoiceAwards, readerUrlFor } from "@/lib/data";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight } from "@/components/Icons";
@@ -36,7 +36,7 @@ export default function LeadersChoice() {
 
         <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-5">
           {leadersChoiceAwards.map((award, i) => {
-            const href = issuePageUrl(award.issuePage);
+            const href = readerUrlFor(award.articleSlug, award.issuePage);
             return (
               <motion.div
                 key={award.id}

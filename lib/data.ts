@@ -248,17 +248,44 @@ const LEADERS_2024_IPT = "b2a88fc3-9b32-4912-953d-f7635166cc6e";
 export const LEADERS_2026_ISSUE_URL =
   "https://library.emagazines.com/library/?plid=97&elt=4c39353f-0ae4-4e08-8799-66593f72685d";
 
-/**
- * eMagazines reader for the Leaders 2026 issue. Appending `#p<page>` opens
- * the reader on that printed page (same convention the Leaders 2024 site
- * used: reader.emagazines.com/issue/market-watch/leaders-2024#p124).
- */
+/** eMagazines reader for the Leaders 2026 issue. */
 export const LEADERS_2026_READER_URL =
   "https://reader.emagazines.com/issue/market-watch/leaders-2026";
 
+/**
+ * The reader numbers pages from the cover, so its `#p<n>` anchor runs two
+ * ahead of the printed folio (printed page 64 is `#p66`).
+ */
+const READER_PAGE_OFFSET = 2;
+
+/**
+ * Exact reader URLs for the winner profiles (article slug + page anchor),
+ * keyed by our /articles slug. Anything not listed here falls back to the
+ * issue URL with an offset page anchor.
+ */
+const readerArticleUrls: Record<string, string> = {
+  "chad-sokol": `${LEADERS_2026_READER_URL}/hunting-for-treasure#p66`,
+  "abc-fine-wine-spirits": `${LEADERS_2026_READER_URL}/fourth-generation-expansion#p74`,
+  "mike-fisch": `${LEADERS_2026_READER_URL}/next-gen-flair-for-tech#p80`,
+  "meghan-cimini-jones": `${LEADERS_2026_READER_URL}/all-in-the-family-2#p86`,
+  "fresh-market": `${LEADERS_2026_READER_URL}/retail-transformer#p92`,
+  "mark-pinho": `${LEADERS_2026_READER_URL}/shaking-it-up-at-winecom#p98`,
+  "anuj-mittal": `${LEADERS_2026_READER_URL}/big-box-alternative#p104`,
+  "adam-acquistapace": `${LEADERS_2026_READER_URL}/excelling-across-categories#p110`,
+  "stew-leonard": `${LEADERS_2026_READER_URL}/dedication-to-saving-lives#p118`,
+};
+
 /** Deep link to a printed page of the Leaders 2026 digital edition. */
-export function issuePageUrl(page: number): string {
-  return `${LEADERS_2026_READER_URL}#p${page}`;
+export function issuePageUrl(printedPage: number): string {
+  return `${LEADERS_2026_READER_URL}#p${printedPage + READER_PAGE_OFFSET}`;
+}
+
+/**
+ * Reader link for an article: the exact article URL when we have one,
+ * otherwise the issue opened at the article's first printed page.
+ */
+export function readerUrlFor(articleSlug: string, printedPage: number): string {
+  return readerArticleUrls[articleSlug] ?? issuePageUrl(printedPage);
 }
 
 export type ArchiveIssue = {

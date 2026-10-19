@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Article } from "@/lib/articles";
 import { articleStartPage, articles, getArticle, getArticleBlocks } from "@/lib/articles";
-import { issuePageUrl } from "@/lib/data";
+import { readerUrlFor } from "@/lib/data";
 import {
   ArticleBody,
   ArticleHeader,
@@ -86,7 +86,7 @@ export default function ArticlePage({ params }: Params) {
               </p>
               <p className="mt-4">
                 <a
-                  href={issuePageUrl(articleStartPage(article))}
+                  href={readerUrlFor(article.slug, articleStartPage(article))}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-alt inline-block no-underline"

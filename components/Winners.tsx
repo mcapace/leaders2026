@@ -1,7 +1,7 @@
 "use client";
 
 import type { AwardWinner } from "@/lib/data";
-import { issuePageUrl, winners } from "@/lib/data";
+import { readerUrlFor, winners } from "@/lib/data";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,7 +36,7 @@ function WinnerCard({
         </div>
         <div className="hidden flex-col items-start gap-2 min-[480px]:flex">
           <a
-            href={issuePageUrl(winner.issuePage)}
+            href={readerUrlFor(winner.articleSlug, winner.issuePage)}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-gold small inline-block no-underline"
@@ -99,7 +99,7 @@ function WinnerCard({
         </p>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2 min-[480px]:hidden">
           <a
-            href={issuePageUrl(winner.issuePage)}
+            href={readerUrlFor(winner.articleSlug, winner.issuePage)}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-gold small inline-block no-underline"
