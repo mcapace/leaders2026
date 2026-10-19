@@ -287,6 +287,8 @@ const readerArticleUrls: Record<string, string> = {
   "stew-leonard": `${LEADERS_2026_READER_URL}/dedication-to-saving-lives#p118`,
   "best-new-products": `${LEADERS_2026_READER_URL}/best-new-product-awards#p124`,
   avaline: `${LEADERS_2026_READER_URL}/wine-brand-of-the-year#p126`,
+  lunazul: `${LEADERS_2026_READER_URL}/spirits-brand-of-the-year#p125`,
+  "tom-day": `${LEADERS_2026_READER_URL}/industry-executive-of-the-year#p127`,
 };
 
 /** Deep link to a printed page of the Leaders 2026 digital edition. */
