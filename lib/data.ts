@@ -226,10 +226,16 @@ export const eventGallery = {
 /* —— Archive —— */
 const LEADERS_2024_IPT = "b2a88fc3-9b32-4912-953d-f7635166cc6e";
 
+/** Leaders 2026 digital edition (eMagazines library). */
+export const LEADERS_2026_ISSUE_URL =
+  "https://library.emagazines.com/library/?plid=97&elt=4c39353f-0ae4-4e08-8799-66593f72685d";
+
 export type ArchiveIssue = {
   year: number;
   image: string;
   url: string | null;
+  /** Optional on-site articles link shown alongside the issue link. */
+  articlesUrl?: string;
   featured: boolean;
   size: "xs" | "s" | "_2" | "large";
 };
@@ -248,7 +254,8 @@ export const archiveIssues: ArchiveIssue[] = [
   {
     year: 2026,
     image: "/images/2026/covers/leaders-2026.avif",
-    url: "/articles",
+    url: LEADERS_2026_ISSUE_URL,
+    articlesUrl: "/articles",
     featured: true,
     size: "large",
   },

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { NEXT_EVENT } from "@/lib/data";
+import { LEADERS_2026_ISSUE_URL, NEXT_EVENT } from "@/lib/data";
 import { LEADERS_EVENT_ISO, useDaysUntilEvent } from "@/lib/useCountdown";
 
 function SaveTheDate() {
@@ -134,13 +134,15 @@ export default function Hero() {
               <a href="#winners" className="btn-gold inline-block no-underline">
                 Meet the 2026 Winners
               </a>
-              <Link
-                href="/articles"
+              <a
+                href={LEADERS_2026_ISSUE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-alt inline-block no-underline"
                 style={{ fontSize: "0.8rem", padding: "0.85rem 1.6rem" }}
               >
                 Read the Issue
-              </Link>
+              </a>
             </motion.div>
 
             <motion.div

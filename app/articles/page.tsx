@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { articles, articleSections } from "@/lib/articles";
+import { LEADERS_2026_ISSUE_URL } from "@/lib/data";
 import { ArticleHeader, Footer } from "@/components/ArticleLayout";
 import { ArrowRight } from "@/components/Icons";
 
@@ -44,10 +45,19 @@ export default function ArticlesIndex() {
                 Leaders veterans are honored for Best Marketing and Community
                 Service. Read every profile below.
               </p>
-              <p className="mt-6">
+              <p className="mt-6 flex flex-wrap items-center gap-3">
                 <Link href="/#winners" className="btn-gold small inline-block no-underline" style={{ marginTop: 0 }}>
                   back to the winners
                 </Link>
+                <a
+                  href={LEADERS_2026_ISSUE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-alt inline-block no-underline"
+                  style={{ fontSize: "0.8rem", padding: "0.85rem 1.6rem" }}
+                >
+                  read the digital edition
+                </a>
               </p>
             </div>
           </div>

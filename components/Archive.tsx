@@ -72,15 +72,20 @@ export default function Archive() {
                       height={560}
                       className="h-auto w-full"
                     />
-                    <div className="absolute bottom-0 right-0 p-2">
+                    <div className="absolute bottom-0 right-0 flex flex-col items-end gap-1 p-2">
                       <Link
                         href={issue.url}
                         target={issue.url.startsWith("/") ? undefined : "_blank"}
                         rel={issue.url.startsWith("/") ? undefined : "noopener noreferrer"}
                         className="btn-alt"
                       >
-                        {issue.featured ? "read the articles" : "view issue"}
+                        view issue
                       </Link>
+                      {issue.articlesUrl ? (
+                        <Link href={issue.articlesUrl} className="btn-alt">
+                          read the articles
+                        </Link>
+                      ) : null}
                     </div>
                   </div>
                 ) : (

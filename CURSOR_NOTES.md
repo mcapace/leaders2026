@@ -28,4 +28,5 @@ Tips that save time when editing this project:
 - Article metadata (titles, deks, bylines, hero/inline figures, key facts, people) lives in **`lib/articles.ts`**.
 - Body text lives in **`lib/articles-content.json`** (`{ slug: [{ type: "p" | "h2" | "byline", text }] }`), extracted from the issue PDF. Edit the JSON directly to fix copy.
 - Inline figures are placed automatically: one figure before each section heading after the first, remaining figures at the end.
-- Winner cards (`lib/data.ts` → `articleSlug`) and the Leaders Choice tiles link to these pages. If the issue is later published on `reader.emagazines.com`, swap the links there.
+- Winner cards (`lib/data.ts` → `articleSlug`) and the Leaders Choice tiles link to these pages.
+- The eMagazines digital edition of the 2026 issue is `LEADERS_2026_ISSUE_URL` in `lib/data.ts`; it drives the hero "Read the Issue" button, the 2026 archive card's "view issue" link and the "read the digital edition" button on `/articles`.
